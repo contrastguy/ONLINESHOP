@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Card from 'react-bootstrap/Card';
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
@@ -12,12 +13,31 @@ import "./CSS/styles.css"
 const Carrinho = () => {
   const [listaProdutos, setListaProdutos] = useState([])
   const [qtd, setQtd] = useState(1)
-  const [card,setCard] = useState(true)
-  const [venda_id,setVenda] = useState(33)
+  const [card, setCard] = useState(true)
+  const [venda_id, setVenda] = useState(33)
   const titulo = JSON.stringify(listaProdutos.map((e) => { return e.nome }))
   const nome = titulo.replace("[", "").replace("]", "").replace(/"/g, '')
   const preco = JSON.stringify(listaProdutos.map((e) => { return e.valor })).replace("[", "").replace("]", "")
   const num = parseInt(preco)
+
+  function DeleteVenda(data) {
+    return axios({
+      method: "delete",
+      // url: `https://onlineshop-1.herokuapp.com/venda/${data.venda_id}`,
+      url:process.env.REACT_APP_VENDAS + data.venda_id, 
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, POST, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Max-Age": "86400",
+        "Access-Content-Type": "*"
+      },
+
+    })
+  }
+
+
+
   useEffect(
     () => {
       // alert("To do : chamar APi rota que pega lista de produtos e add response no state listaProdutos")
@@ -31,18 +51,18 @@ const Carrinho = () => {
       ).catch((error) => { console.log(error) })
     }, [])
 
-    function DeletarCard(){
-      DeleteVenda({venda_id}).then(
-        (response)=>{ 
-          alert("Sucess")
-        }
-      ).catch(
-        (error)=>{console.log(error)}
-      )
-    }
+  function DeletarCard() {
+    DeleteVenda({ venda_id }).then(
+      (response) => {
+        alert("Sucess")
+      }
+    ).catch(
+      (error) => { console.log(error) }
+    )
+  }
 
 
-    
+
 
 
 
@@ -56,27 +76,27 @@ const Carrinho = () => {
             Carrinho de compras <Badge bg="secondary">New</Badge>
           </h3>
 
-          
-            <Card  value={venda_id} className="card-container">
-            <Button variant="danger" onClick={()=>{
-                DeletarCard()
-              }}>Excluir</Button>
-              <div className="img-carrinho">
-                <Card.Img class="img-card" variant="top" src={DolceGabbana} />
+
+          <Card value={venda_id} className="card-container">
+            <Button variant="danger" onClick={() => {
+              DeletarCard()
+            }}>Excluir</Button>
+            <div className="img-carrinho">
+              <Card.Img class="img-card" variant="top" src={DolceGabbana} />
+            </div>
+            <Card.Body>
+              <div className="items-carrinho">
+                <Card.Text>
+                  <h3 id="nome-produto">{nome}</h3>
+                </Card.Text>
+                <label for="qtd"><h3>Quantidade:</h3></label>
+                <input id="qtd" type="number" onChange={(e) => { setQtd(e.target.value) }} />
+                <h3>Preço:{num}</h3>
+                <h3>Total:{(num * qtd)}</h3>
               </div>
-              <Card.Body>
-                <div className="items-carrinho">
-                  <Card.Text>
-                    <h3 id="nome-produto">{nome}</h3>
-                  </Card.Text>
-                  <label for="qtd"><h3>Quantidade:</h3></label>
-                  <input id="qtd" type="number" onChange={(e) => { setQtd(e.target.value) }} />
-                  <h3>Preço:{num}</h3>
-                  <h3>Total:{(num * qtd)}</h3>
-                </div>
-              </Card.Body>
-            </Card>
-          
+            </Card.Body>
+          </Card>
+
         </div>
         <div className="secao-ordem-compra">
           <h3>Ordem de Compra</h3>

@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import axios from "axios"
 
 
@@ -13,7 +13,7 @@ const Teste = (props) => {
         console.log("Componente construído")
         axios({
             method: "get",
-            url: "http://localhost:5000/usuarios",
+            url: process.env.REACT_APP_URLAPI,
             headers: { "Access-Control-Allow-Origin": "*" }
         })
             .then(
@@ -49,7 +49,8 @@ function ApiLogin(loginData) {
     console.log("Componente Construído")
     return axios({
         method: "post",
-        url: "http://localhost:5000/login",
+        // url: "http://localhost:5000/login",
+        url: process.env.REACT_APP_LOGIN,
         data: loginData,
         headers: { "Access-Control-Allow-Origin": "*" }
     })
@@ -62,7 +63,8 @@ function ApiLogin(loginData) {
 function ApiCadastro(data){
     return axios({
         method:"post",
-        url:"http://localhost:5000/usuario/cadastro",
+        // url:"http://localhost:5000/usuario/cadastro",
+        url: process.env.REACT_APP_CADASTRO_USUARIO,
         data:data,
         headers: { "Access-Control-Allow-Origin": "*" }
     })
@@ -72,7 +74,8 @@ function ApiCadastro(data){
 function CadastroProdutosMulher(data){
     return axios({
         method:"post",
-        url:"http://localhost:5000/produto/cadastro",
+        // url:"http://localhost:5000/produto/cadastro",
+        url:process.env.REACT_APP_CADASTRO_PRODUTO,
         data:data,
         headers: { "Access-Control-Allow-Origin": "*" }
     })
@@ -83,7 +86,8 @@ function CadastroProdutosMulher(data){
 function ProdutosMulher(){
     return axios({
         method: "get",
-        url: "http://localhost:5000/produtos",
+        // url: "http://localhost:5000/produtos",
+        url:process.env.REACT_APP_PRODUTOS,
         headers: { "Access-Control-Allow-Origin": "*" }
     })
 }
@@ -91,25 +95,13 @@ function ProdutosMulher(){
 function CadastroVenda(data){
     return axios({
         method:"post",
-        url:"http://localhost:5000/venda/cadastro",
+        // url:"http://localhost:5000/venda/cadastro",
+        url:process.env.REACT_APP_CADASTRO_VENDA,
         data:data,
         headers: { "Access-Control-Allow-Origin": "*" }
     })
 }
 
-function DeleteVenda(data){
-    return axios({
-        method:"delete",
-        url:"http://localhost:5000/venda/",
-        params:data,
-        headers: { "Access-Control-Allow-Origin": "*" ,
-        "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, POST, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "*",
-        "Access-Control-Max-Age": "86400",
-        "Access-Content-Type":"*"
-         },
-          
-    })
-}
+
 
 export {Teste,ApiLogin,ApiCadastro,CadastroProdutosMulher,ProdutosMulher,DeleteVenda,CadastroVenda}
