@@ -1,0 +1,64 @@
+#componente{
+    
+}
+
+.LinkCadastro {
+    color: #0E101C;
+    text-decoration: none;
+}
+.login {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, #fa8c8c,rgb(231, 84, 84),#fa8c8c);
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+.cardLogCad{
+    height: auto;
+    border-radius: 2%;
+}
+
+footer{
+    height: auto;
+    background-color: #535151;
+    font-size: 1.2em;
+}
+
+li{
+    list-style-type: none;
+}
+
+.png{
+    height: 5vh;
+    background-color: #535151;
+}
+
+a{
+    text-decoration: none;
+}
+
+.input-quest{
+    height: 6vh;
+    background-color: #f7cfcf;
+    color: rgba(20, 4, 4, 0.623);
+    border-radius: 5px;
+    padding-left: 1vw;
+}
+
+.focus-0{
+    border: none;
+}
+
+.focus-0:focus{
+    outline: 0;
+}
+
+.register{
+    height: 6vh;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.2em;
+}

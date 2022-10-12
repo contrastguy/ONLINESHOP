@@ -1,0 +1,55 @@
+.global {
+    display: flex;
+    flex-direction: row;
+    height: 60vh;
+}
+
+.secao-produtos {
+    width: 75%;
+    height: 60vh;
+}
+
+.card-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.secao-ordem-compra {
+    width: 25%;
+    height: 60vh;
+    background-color: rgb(236, 21, 64);
+    padding: 3vh;
+}
+
+.text-secao-compra {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.text-secao-compra>h4 {
+    margin-bottom: 5vh;
+}
+
+.text-secao-compra>h5 {
+    margin-bottom: 3vh;
+}
+
+.img-card {
+    width: 15vh;
+    height: 15vh;
+    margin-top: 3%;
+}
+
+.items-carrinho {
+    height: 15vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#nome-produto{
+    margin: 0;
+}

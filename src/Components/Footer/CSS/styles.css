@@ -1,0 +1,19 @@
+#footer-container{
+    color:beige;
+    height: 30vh;
+    padding-top: 5%;
+    margin:0;
+
+}
+
+#Facebook-img{
+    position: relative;
+    right:3px;
+    bottom: 2px;
+}
+
+#Instagram-img{
+    position: relative;
+    right:3px;
+    bottom: 2px;
+}
