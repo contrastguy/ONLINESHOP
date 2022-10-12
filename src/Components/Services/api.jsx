@@ -104,4 +104,4 @@ function CadastroVenda(data){
 
 
 
-export {Teste,ApiLogin,ApiCadastro,CadastroProdutosMulher,ProdutosMulher,DeleteVenda,CadastroVenda}
+export {Teste,ApiLogin,ApiCadastro,CadastroProdutosMulher,ProdutosMulher,CadastroVenda}
