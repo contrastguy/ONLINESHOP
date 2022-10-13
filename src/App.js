@@ -14,7 +14,10 @@ import Login from './Components/Login/Login.jsx';
 import Cadastro from './Components/Cadastro/Cadastro.jsx';
 import Cesta from './Components/Produto/produto.jsx';
 import Carrinho from './Components/Carrinho/carrinho.jsx'
+import CadastroLoja from './Components/CadastroLoja/CadastroLoja.jsx'
+import LoginLoja from './Components/LoginLoja/LoginLoja.jsx';
 import './App.css';
+
 
 
 
@@ -28,12 +31,12 @@ const App = () => {
           <Route path="/produto" element={<Cesta/>}/>
           <Route path="/feminina" element={<Mulher />}/>
           <Route path="/"exact element={<Homem />}/>
-          <Route path="/login" element={<Login />}/>
+          <Route path="/login" element={<LoginLoja />}/>
           <Route path="/cadastro" element={<Cadastro />}/>
           <Route path="/perfil" element={<Perfil />}>
             <Route index element={<DadosPerfil />}/>
             <Route path="minhas-compras" element={<MinhasCompras />}/>
-            <Route path="meus-produtos" element={<MeusProdutos />}/>
+            <Route path="meus-produtos" element={<CadastroLoja />}/>
             <Route path="favoritos" element={<Favoritos />}/>
             <Route path="pagamentos" element={<Pagamento />}/>
             <Route path="configuracoes" element={<Configuracoes />}/>
@@ -42,6 +45,7 @@ const App = () => {
           
         </Routes>
       </BrowserRouter>
+      
     );
 }
 
