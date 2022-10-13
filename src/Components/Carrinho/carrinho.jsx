@@ -4,8 +4,6 @@ import Card from 'react-bootstrap/Card';
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import { Badge, Button } from "react-bootstrap";
-import { ProdutosMulher } from "../Services/api";
-import { DeleteVenda } from "../Services/api";
 import DolceGabbana from "../Mulher/Imagens/17528762_37436785_600.jpg"
 import "./CSS/styles.css"
 
@@ -20,47 +18,47 @@ const Carrinho = () => {
   const preco = JSON.stringify(listaProdutos.map((e) => { return e.valor })).replace("[", "").replace("]", "")
   const num = parseInt(preco)
 
-  function DeleteVenda(data) {
-    return axios({
-      method: "delete",
-      // url: `https://onlineshop-1.herokuapp.com/venda/${data.venda_id}`,
-      url:process.env.REACT_APP_VENDAS + data.venda_id, 
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, POST, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "*",
-        "Access-Control-Max-Age": "86400",
-        "Access-Content-Type": "*"
-      },
+  // function DeleteVenda(data) {
+  //   return axios({
+  //     method: "delete",
+  //     // url: `https://onlineshop-1.herokuapp.com/venda/${data.venda_id}`,
+  //     url: process.env.REACT_APP_VENDAS + data.venda_id,
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*",
+  //       "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, POST, DELETE, OPTIONS",
+  //       "Access-Control-Allow-Headers": "*",
+  //       "Access-Control-Max-Age": "86400",
+  //       "Access-Content-Type": "*"
+  //     },
 
-    })
-  }
+  //   })
+  // }
 
 
 
   useEffect(
     () => {
       // alert("To do : chamar APi rota que pega lista de produtos e add response no state listaProdutos")
-      ProdutosMulher().then(
-        (response) => {
-          console.log(response.data)
-          const dados = response.data
-          setListaProdutos(dados)
+      //     ProdutosMulher().then(
+      //       (response) => {
+      //         console.log(response.data)
+      //         const dados = response.data
+      //         setListaProdutos(dados)
 
-        }
-      ).catch((error) => { console.log(error) })
-    }, [])
+      //       }
+      //     ).catch((error) => { console.log(error) })
+      //   }, [])
 
-  function DeletarCard() {
-    DeleteVenda({ venda_id }).then(
-      (response) => {
-        alert("Sucess")
-      }
-    ).catch(
-      (error) => { console.log(error) }
-    )
-  }
-
+      // function DeletarCard() {
+      //   DeleteVenda({ venda_id }).then(
+      //     (response) => {
+      //       alert("Sucess")
+      //     }
+      //   ).catch(
+      //     (error) => { console.log(error) }
+      //   )
+    }
+  )
 
 
 
@@ -79,7 +77,7 @@ const Carrinho = () => {
 
           <Card value={venda_id} className="card-container">
             <Button variant="danger" onClick={() => {
-              DeletarCard()
+              // DeletarCard()
             }}>Excluir</Button>
             <div className="img-carrinho">
               <Card.Img class="img-card" variant="top" src={DolceGabbana} />

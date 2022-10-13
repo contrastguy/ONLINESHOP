@@ -1,14 +1,11 @@
-import React from "react";
 import NavBar from "../NavBar/NavBar"
 import Footer from "../Footer/Footer"
-import Camisa from "./Imagens/Camisa-preta.jpg"
-import Jaqueta from "./Imagens/Jaqueta.jpg"
-import Moletom from "./Imagens/Moletom-branco.jpg"
-import SapatosPretos from "./Imagens/Sapato-preto.jpg"
-import { Button,Container,Card } from "react-bootstrap";
+import { Container,Card,Row } from "react-bootstrap";
 import Carrossel from "../Carousel/Carousel";
 import "./CSS/styles.css"
-import { useNavigate } from "react-router-dom";
+import  React,{ useEffect, useState } from "react";
+import Post from "../Posts/Post/Post";
+import { api } from "../Services/api";
 
 console.log("TESTE")
 
@@ -16,9 +13,30 @@ console.log("TESTE")
 
 const Homem = () => {
 
-    const navigateProduto = useNavigate("/produto") 
+    
 
-
+    const [listaProdutos, setListaProdutos] = useState([])
+  
+    
+    const TodosProdutos = async () => {
+        try {
+          const url = "/produtos"
+          const res = await api.get(url)
+           setListaProdutos(res.data);
+           console.log(res.data);
+          
+        } catch (err) {
+          console.log(err);
+        }
+      }
+      
+    
+    
+    
+        useEffect(()=>{
+          TodosProdutos()
+           return 
+        },[])
 
     return (
         
@@ -30,46 +48,20 @@ const Homem = () => {
             </div>
             
             <Container className="d-flex flex-row justify-content-center">
-                <Card className="m-4" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={Moletom} />
-                    <Card.Body>
-                        <Card.Title>Casaco de Moletom</Card.Title>
-                        <Card.Text>
-                            Moletom de capuz Branco, com estampa artística
-                        </Card.Text>
-                        <Button onClick={() =>  { navigateProduto("/produto") }} variant="danger">Comprar</Button>
-                    </Card.Body>
-                </Card>
-                <Card className="m-4" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={Camisa} />
-                    <Card.Body>
-                        <Card.Text>
-                        <Card.Title>Camiseta Básica</Card.Title>
-                            Camiseta slim, minimalista, com estampa da Logo 
-                        </Card.Text>
-                        <Button onClick={() =>  { navigateProduto("/produto") }} variant="danger">Comprar</Button>
-                    </Card.Body>
-                </Card>
-                <Card className="m-4" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={SapatosPretos} />
-                    <Card.Body>
-                        <Card.Title>Sapato Social</Card.Title>
-                        <Card.Text>
-                           Sapato social preto, com fivela 
-                        </Card.Text>
-                        <Button onClick={() =>  { navigateProduto("/produto") }} variant="danger">Comprar</Button>
-                    </Card.Body>
-                </Card>
-                <Card className="m-4" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={Jaqueta} />
-                    <Card.Body>
-                        <Card.Title>Jaqueta</Card.Title>
-                        <Card.Text>
-                           Jaqueta de botão, com estampa artística
-                        </Card.Text>
-                        <Button onClick={() =>  { navigateProduto("/produto") }} variant="danger">Comprar</Button>
-                    </Card.Body>
-                </Card>
+            <Container>
+          <Row>
+            {listaProdutos.map((prod,index) => {
+              return (
+                <Post 
+                key={index}
+                nome={prod.nome}
+                image={prod.imagens_produto[0].url_imagem}
+                descricao={prod.descricao}
+                />
+              )  
+            })}
+          </Row>
+        </Container>
             </Container>
 
 

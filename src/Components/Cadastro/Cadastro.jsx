@@ -1,6 +1,5 @@
 import React,{ useState } from 'react';
 import NavBar from '../NavBar/NavBar';
-import { ApiCadastro } from '../Services/api';
 import './CSS/styles.css'
 
 
@@ -21,11 +20,11 @@ const [check,setCheck] = useState(false)
  
 
 function eventHandleCadastro(){ 
-    ApiCadastro({
-        nome,sobrenome,email,celular,senha,confSenha,cidade,logradouro,rua,numero
-    }).then(
-      (response) => { alert("Funcionou")}
-    ).catch((error)=>{console.log(error)})
+    // ApiCadastro({
+    //     nome,sobrenome,email,celular,senha,confSenha,cidade,logradouro,rua,numero
+    // }).then(
+    //   (response) => { alert("Funcionou")}
+    // ).catch((error)=>{console.log(error)})
 }
 
 function verifyTerms() {

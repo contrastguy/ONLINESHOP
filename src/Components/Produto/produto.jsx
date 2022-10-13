@@ -9,7 +9,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import NavBar from '../NavBar/NavBar';
 import { useNavigate } from 'react-router-dom';
 import DolceGabbana from "../Mulher/Imagens/17528762_37436785_600.jpg"
-import { ProdutosMulher,CadastroVenda } from "../Services/api";
+
 
 import './CSS/styles.css'
 
@@ -40,38 +40,38 @@ export default function Cesta() {
   useEffect(
     () => {
       // alert("To do : chamar APi rota que pega lista de produtos e add response no state listaProdutos")
-      ProdutosMulher().then(
-        (response) => {
-          console.log(response.data)
-          const dados = response.data
-          setListaProdutos(dados)
+    //   ProdutosMulher().then(
+    //     (response) => {
+    //       console.log(response.data)
+    //       const dados = response.data
+    //       setListaProdutos(dados)
 
-        }
-      ).catch((error) => { console.log(error) })
+    //     }
+    //   ).catch((error) => { console.log(error) })
     
-    }, [])
-    function  CadastroVendaCarrinho(){
-      CadastroVenda({usuario_id,total}).then(
-        (response) => {
-          const  dados = response.data
-          console.log(dados)
-          alert("Funcionou")}
-      ).catch(
-        (error)=>{console.log(error)}
-      )
+    // }, [])
+    // function  CadastroVendaCarrinho(){
+    //   CadastroVenda({usuario_id,total}).then(
+    //     (response) => {
+    //       const  dados = response.data
+    //       console.log(dados)
+    //       alert("Funcionou")}
+    //   ).catch(
+    //     (error)=>{console.log(error)}
+    //   )
     }
     
 
-    function verificarTamanho(value){
+  //   function verificarTamanho(value){
 
-      if(tamanho === value){
-        return alert("Esse tamanho está disponível")
-      }else{
-        return alert("Esse tamanho não está disponível")
-      }
+  //     if(tamanho === value){
+  //       return alert("Esse tamanho está disponível")
+  //     }else{
+  //       return alert("Esse tamanho não está disponível")
+  //     }
 
-  } 
-    
+  // } 
+  )
    
 
   return (
@@ -127,15 +127,15 @@ export default function Cesta() {
               <ButtonGroup className="mb-2">
                 <Button value={"P"} onClick={(e)=>{
                   const valor = e.target.value
-                  verificarTamanho(valor)
+                  // verificarTamanho(valor)
                 }}>P</Button>
                 <Button value={"M"} onClick={(e)=>{
                   const valor = e.target.value
-                  verificarTamanho(valor)
+                  // verificarTamanho(valor)
                 }}>M</Button>
                 <Button value={"G"} onClick={(e)=>{
                   const valor = e.target.value
-                  verificarTamanho(valor)
+                  // verificarTamanho(valor)
                 }}>G</Button>
               </ButtonGroup>
             </div>
@@ -163,7 +163,7 @@ export default function Cesta() {
               <h3 onChange={(e)=>{setTotal(e.target.value)}}>{(num * qtd) + ",00"}</h3>
             </div>
             <Button onClick={()=>{
-              CadastroVendaCarrinho()
+              // CadastroVendaCarrinho()
               navigateCarrinho("/carrinho")
             }} className='comprar btn btn-success'>Adicionar ao Carrinho</Button>
           </div>

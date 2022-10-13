@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar.jsx';
-import { ApiLogin } from "../Services/api"
 import Componente from './ProtectedComponent.jsx';
 import './CSS/styles.css'
 
@@ -18,23 +17,23 @@ function Login() {
 
 
     function handleLogin() {
-        ApiLogin({ email, senha }).then(
-            (response) => {
-                alert("Login funcionou")
-                const dados = response.data
-                if (dados) {
-                    localStorage.setItem('Token', JSON.stringify(dados))
-                    window.location.reload()
-                }
-            }
-        ).catch(
-            (error) => {
-                console.log(error)
-                if (error.response.status == 401) {
-                    setTemErro(true)
-                }
-            }
-        )
+        // ApiLogin({ email, senha }).then(
+        //     (response) => {
+        //         alert("Login funcionou")
+        //         const dados = response.data
+        //         if (dados) {
+        //             localStorage.setItem('Token', JSON.stringify(dados))
+        //             window.location.reload()
+        //         }
+        //     }
+        // ).catch(
+        //     (error) => {
+        //         console.log(error)
+        //         if (error.response.status == 401) {
+        //             setTemErro(true)
+        //         }
+        //     }
+        // )
         
         return <Componente/>
         
