@@ -6,6 +6,11 @@
 
 .cursor{
     cursor: pointer;
+    text-decoration: none;
+    color: inherit
+}
+.cursor:hover{
+    color: black;
 }
 
 .cardLogCad{

@@ -39,7 +39,6 @@ function LoginLoja() {
 
     return (
         <>
-            <NavBar />
             <div className="vh-100 position-relative">
                 <div className="login d-flex">
                     <div className="d-flex col-5 bg-light justify-content-center flex-column cardLogCad m-auto ">
@@ -81,7 +80,7 @@ function LoginLoja() {
                         </div>
                         <p className="link-secondary text-center mt-2 mb-4">
                             Não tem uma conta?
-                            <Link className="LinkCadastro text-danger" to="/cadastro">
+                            <Link className="LinkCadastro text-danger" to="/cadastro-loja">
                                 <strong> Cadastre-se</strong>
                             </Link>
                         </p>

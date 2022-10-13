@@ -1,5 +1,6 @@
 import React,{ useState } from 'react';
 import NavBar from '../NavBar/NavBar';
+import { NavLink as Navigator, Link } from 'react-router-dom'
 import {ApiLojaCadastro}   from '../Services/apiLoja';
 import './CSS/styles.css'
 
@@ -92,7 +93,9 @@ function verifyTerms() {
                         }
                     }>Continuar</button>
                 </div>
-                <p className="link-secondary text-center mt-2 pb-3">Já tem uma conta? <strong onclick="paginaLogin()" className="cursor">Login</strong></p>
+                <p className="link-secondary text-center mt-2 pb-3">Já tem uma conta?
+                    <Link to="/login-loja" className="cursor">Login</Link>
+                </p>
             </div>
         </div>
     </div>

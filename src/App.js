@@ -7,6 +7,7 @@ import DadosPerfil from './Components/PerfilUsuario/DadosPerfil/index.jsx';
 import MinhasCompras from './Components/PerfilUsuario/MinhasCompras/index.jsx';
 import MeusProdutos from './Components/PerfilUsuario/MeusProdutos/index.jsx';
 import Favoritos from './Components/PerfilUsuario/Favoritos/index.jsx';
+import PagamentoLoja from './Components/PerfilLoja/Pagamento/index.jsx';
 import Pagamento from './Components/PerfilUsuario/Pagamento/index.jsx';
 import Configuracoes from './Components/PerfilUsuario/Configuracoes/index.jsx';
 import Ajuda from './Components/PerfilUsuario/Ajuda/index.jsx';
@@ -16,7 +17,9 @@ import Cesta from './Components/Produto/produto.jsx';
 import Carrinho from './Components/Carrinho/carrinho.jsx'
 import CadastroLoja from './Components/CadastroLoja/CadastroLoja.jsx'
 import LoginLoja from './Components/LoginLoja/LoginLoja.jsx';
-import './App.css';
+import PerfilLoja from './Components/PerfilLoja/PerfilLoja.jsx';
+import DadosPerfilLoja from './Components/PerfilLoja/DadosPerfilLoja/index'
+import MeusProdutosLoja from './Components/PerfilLoja/MeusProdutos/index.jsx';
 
 
 
@@ -36,13 +39,21 @@ const App = () => {
           <Route path="/perfil" element={<Perfil />}>
             <Route index element={<DadosPerfil />}/>
             <Route path="minhas-compras" element={<MinhasCompras />}/>
-            <Route path="meus-produtos" element={<CadastroLoja />}/>
+            <Route path="meus-produtos" element={<MeusProdutos />}/>
             <Route path="favoritos" element={<Favoritos />}/>
             <Route path="pagamentos" element={<Pagamento />}/>
             <Route path="configuracoes" element={<Configuracoes />}/>
             <Route path="ajuda" element={<Ajuda />}/>
           </Route>
-          
+          <Route path="/login-loja" element={<LoginLoja />}/>
+          <Route path="/cadastro-loja" element={<CadastroLoja />}/>
+          <Route path="/perfil-loja" element={<PerfilLoja />}>
+            <Route index element={<DadosPerfilLoja />}/>
+            <Route path="meus-produtos" element={<MeusProdutosLoja />}/>
+            <Route path="pagamentos" element={<PagamentoLoja />}/>
+            <Route path="configuracoes" element={<Configuracoes />}/>
+            <Route path="ajuda" element={<Ajuda />}/>
+          </Route> 
         </Routes>
       </BrowserRouter>
       

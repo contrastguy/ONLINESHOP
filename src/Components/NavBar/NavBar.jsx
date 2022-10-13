@@ -46,7 +46,7 @@ const NavBar = () => {
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Nav.Link id="venda-conosco" to="/perfil/meus-produtos" as={Navigator}>Venda Conosco</Nav.Link>
+            <Nav.Link id="venda-conosco" to="/cadastro-loja" as={Navigator}>Venda Conosco</Nav.Link>
             <Nav id="Seção" className="justify-content-center mx-auto ">
               <Button id="btn_masc" className="mx-4" variant="outline-danger" onClick={() => navigateMasc("/")} active>Masculino</Button>
               <Button id="btn_fem" className="mx-4" variant="outline-danger" onClick={() => navigateFem("/feminina")}  >Feminino</Button>
