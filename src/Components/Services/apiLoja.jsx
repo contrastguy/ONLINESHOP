@@ -2,15 +2,14 @@
 import axios from "axios"
 
 
-function ApiLojaLogin(data) {
+function ApiLojaLogin(LoginData) {
 
 
     console.log("Componente Construído")
-    const url = "/loja/login"
     return axios({
         method: "post",
-        url: `${process.env.REACT_APP_URL_API}${url}`,
-        data: data,
+        url:'https://onlineshop-1.herokuapp.com/loja/login',
+        data: LoginData,
         headers: { "Access-Control-Allow-Origin": "*" }
     })
 }

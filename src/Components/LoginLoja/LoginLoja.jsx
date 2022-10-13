@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar.jsx';
-import { ApiLojaLogin } from "../Services/apiLoja"
+import { ApiLojaLogin } from "../Services/apiLoja.jsx"
 import './CSS/styles.css'
 
 
@@ -26,13 +26,14 @@ function LoginLoja() {
                     window.location.reload()
                 }
             }
-        ).catch(
-             setTemErro(true)      
-            
-        )
-        
-       
-        
+            ).catch(
+                (error) => {
+                    console.log(error)
+                    if (error.response.status == 401) {
+                        setTemErro(true)
+                    }
+                }
+            )
     }
 
 
@@ -44,7 +45,7 @@ function LoginLoja() {
                     <div className="d-flex col-5 bg-light justify-content-center flex-column cardLogCad m-auto ">
 
                         <div className="d-flex justify-content-center align-content-center position-relative">
-                            <h1 className="font title link-secondary mt-5">Login</h1>
+                            <h1 className="font title link-secondary mt-5">Login Loja</h1>
 
                         </div>
                         <div className="d-flex justify-content-center">
