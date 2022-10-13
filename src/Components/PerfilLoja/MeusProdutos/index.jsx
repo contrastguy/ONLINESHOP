@@ -1,7 +1,44 @@
 import React from "react";
 import "../styles.css";
+import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+
+function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Modal heading
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Centered Modal</h4>
+          <p>
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+            consectetur ac, vestibulum at eros.
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+  
+
+
 
 function MeusProdutosLoja() {
+    const [modalShow, setModalShow] = React.useState(false);
+    
     return(
             <div class="col-9 overflow-auto altura">
                 <div class=" d-flex justify-content-center align-content-center m-5 border-bottom">
@@ -17,7 +54,7 @@ function MeusProdutosLoja() {
                               <h6>Voçê não publicou nenhum produto ainda.</h6>
                         </div>
                         <div class=" d-flex justify-content-center mt-5 pb-5 ">
-                            <button class="btn btn-primary w-25 radius-0">Publicar Produto</button>
+                            <button class="btn btn-primary w-25 radius-0" onClick={() => setModalShow(true)}>Publicar Produto</button>
                         </div>
 
                     <div class="d-flex justify-content-center link-secondary pt-4 border-bottom"> 
@@ -30,7 +67,10 @@ function MeusProdutosLoja() {
                           </svg>
                           <h6>Voçê não vendeu nenhum produto ainda.</h6>
                     </div>
-                        
+                    <MyVerticallyCenteredModal
+                        show={modalShow}
+                        onHide={() => setModalShow(false)}
+                    />  
                     </div>
                 </div>
 
