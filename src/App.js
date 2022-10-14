@@ -20,7 +20,8 @@ import LoginLoja from './Components/LoginLoja/LoginLoja.jsx';
 import PerfilLoja from './Components/PerfilLoja/PerfilLoja.jsx';
 import DadosPerfilLoja from './Components/PerfilLoja/DadosPerfilLoja/index'
 import MeusProdutosLoja from './Components/PerfilLoja/MeusProdutos/index.jsx';
-
+import HomePage from './Components/HomePage/HomePage.jsx';
+import './App.css';
 
 
 
@@ -33,8 +34,10 @@ const App = () => {
           <Route path="/carrinho" element={<Carrinho/>}/>
           <Route path="/produto" element={<Cesta/>}/>
           <Route path="/feminina" element={<Mulher />}/>
-          <Route path="/"exact element={<Homem />}/>
           <Route path="/login" element={<LoginLoja />}/>
+          <Route path="/masculina"exact element={<Homem />}/>
+          <Route path="/"exact element={<HomePage />}/>
+          <Route path="/login" element={<Login />}/>
           <Route path="/cadastro" element={<Cadastro />}/>
           <Route path="/perfil" element={<Perfil />}>
             <Route index element={<DadosPerfil />}/>
