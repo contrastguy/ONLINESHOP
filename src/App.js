@@ -15,6 +15,7 @@ import Cadastro from './Components/Cadastro/Cadastro.jsx';
 import Cesta from './Components/Produto/produto.jsx';
 import Carrinho from './Components/Carrinho/carrinho.jsx'
 import './App.css';
+import HomePage from './Components/HomePage/HomePage.jsx';
 
 
 
@@ -27,7 +28,8 @@ const App = () => {
           <Route path="/carrinho" element={<Carrinho/>}/>
           <Route path="/produto" element={<Cesta/>}/>
           <Route path="/feminina" element={<Mulher />}/>
-          <Route path="/"exact element={<Homem />}/>
+          <Route path="/masculina"exact element={<Homem />}/>
+          <Route path="/"exact element={<HomePage />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/cadastro" element={<Cadastro />}/>
           <Route path="/perfil" element={<Perfil />}>

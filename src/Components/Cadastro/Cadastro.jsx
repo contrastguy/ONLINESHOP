@@ -1,5 +1,4 @@
 import React,{ useState } from 'react';
-import NavBar from '../NavBar/NavBar';
 import './CSS/styles.css'
 
 
@@ -37,7 +36,6 @@ function verifyTerms() {
 
   return (
     <div>
-        <NavBar/>
         <div className="login p-1 position-relative">
             
             <div className="bg-light cardLogCad m-auto mt-4 mb-4 col-5">

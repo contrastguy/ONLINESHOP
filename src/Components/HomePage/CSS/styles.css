@@ -1,0 +1,13 @@
+/* #sapato-img{
+    width:590px;
+    height: 590px;
+} */
+
+#p-carrosel{
+    color:white;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+}

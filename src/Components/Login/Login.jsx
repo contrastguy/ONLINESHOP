@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import NavBar from '../NavBar/NavBar.jsx';
 import Componente from './ProtectedComponent.jsx';
 import './CSS/styles.css'
 
@@ -49,8 +48,6 @@ function Login() {
 
     return (
         <>
-            
-            <NavBar />
             <div className="vh-100 position-relative">
                 <div className="login d-flex">
                     <Componente/>
