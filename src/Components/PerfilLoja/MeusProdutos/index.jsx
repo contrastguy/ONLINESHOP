@@ -4,9 +4,15 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import { useForm } from 'react-hook-form';
 
 function MyVerticallyCenteredModal(props) {
-    return (
+  
+  const { register, handleSubmit, formState:{ erros } } = useForm()
+  
+  const adicionarProduto = data => console.log(data)
+  
+  return (
       <Modal
         {...props}
         size="lg"
@@ -15,19 +21,88 @@ function MyVerticallyCenteredModal(props) {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
+            Cadastrar novo produto
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Centered Modal</h4>
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
-          </p>
+          <main>
+            <div className="card-post">
+              <form onSubmit={handleSubmit(adicionarProduto)}>
+                <div className='campo'>
+                    <label htmlFor="nome-produto"><h5>Nome do produto</h5></label>
+                    <input type="text" name="nome" {... register("nome")} /> 
+                </div>
+                <div className="selecionar">
+                  <h5>Gênero</h5>
+                  <select name="genero" id="">
+                    <option value="0" id='0'name="null" {... register("null")}>-</option>
+                    <option value="1" id='1'name="1" {... register("1")}>Masculino</option>
+                    <option value="2" id='2'name="2" {... register("2")}>Feminino</option>
+                  </select>
+                </div>
+                <div className="selecionar">
+                  <h5>Seção</h5>
+                  <select name="" id="">
+                    <option value="0" id='0' name="null" {... register("null")}>-</option>
+                    <option value="1" id='1' name="1" {... register("1")}>Adulto</option>
+                    <option value="2" id='2' name="2" {... register("2")}>Teen</option>
+                    <option value="3" id='3' name="3" {... register("3")}>Infantil</option>
+                  </select>
+                </div>
+                <div className="selecionar">
+                  <h5>Categoria</h5>
+                  <select name="" id="">
+                    <option value="0" id='0'>-</option>
+                    <option value="1" id='1'>Roupa</option>
+                    <option value="2" id='2'>Acessório</option>
+                    <option value="3" id='3'>Calçado</option>
+                    <option value="4" id='4'>Chapéu</option>
+                    <option value="5" id='5'>Óculos</option>
+                  </select>
+                </div>
+                <div className="selecionar">
+                  <h5>Estilo</h5>
+                  <select name="" id="">
+                    <option value="0" id='0'>-</option>
+                    <option value="1" id='1'>Casual</option>
+                    <option value="2" id='2'>Elegante</option>
+                    <option value="3" id='3'>Clássico</option>
+                    <option value="4" id='4'>Vintage</option>
+                    <option value="5" id='5'>Street</option>
+                    <option value="6" id='6'>Tradicional</option>
+                  </select>
+                </div>
+                <div className="campo">
+                  <label htmlFor="cor-produto"><h5>Cor</h5></label>
+                    <input type="text" />
+                </div>
+                <div className="quantidade">
+                  <h5>Quantidade de Estoque</h5>
+                  <input type="number" />
+                </div>
+                <div className="campo">
+                  <label htmlFor="tamanho"><h5>Tamanho:</h5></label>
+                    <input type="text" />
+                </div>
+                <div className="valor">
+                  <h5>Valor</h5>
+                  <input type="number" />
+                </div>
+                <div className="imagem">
+                  <h5>Adicionar imagem</h5>
+                  <input type="file" />
+                </div>
+                <div className="text">
+                  <h5>Descrição</h5>
+                  <textarea type="text" />
+                </div>
+              </form>
+            </div>
+          </main>
+         
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button type='submit'>Salvar</Button>
         </Modal.Footer>
       </Modal>
     );
