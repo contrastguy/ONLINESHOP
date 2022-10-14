@@ -23,4 +23,14 @@ function ApiLojaCadastro(data){
     })
 }
 
-export {ApiLojaCadastro, ApiLojaLogin}
+function ApiProdutoCadastro(data){
+    alert(data)
+    return axios({
+        method:"post",
+        url: 'https://onlineshop-1.herokuapp.com/produto/cadastro',
+        data:data,
+        headers: { "Access-Control-Allow-Origin": "*" }
+    })
+}
+
+export {ApiLojaCadastro, ApiLojaLogin, ApiProdutoCadastro}

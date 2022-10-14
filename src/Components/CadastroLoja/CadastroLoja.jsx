@@ -40,7 +40,8 @@ function verifyTerms() {
                 <div className="d-flex flex-column align-items-center">
                     <div className="mt-4 col-8 d-flex flex-column">  
                         <div className="">
-                            <label for="Nome Fantasia" className="col-6 "><strong>*</strong> Nome Fantasia:</label>
+                            <label for="Nome Fantasia" className="col-6 ">
+                                <strong>*</strong> Nome Fantasia:</label>
                         </div>
                         <input type="text" name="Nome" id="nome" className="input-quest inputCad focus-0 text-black mt-2" value={nome_fantasia} onChange={(e) => {
                             setNomeFantasia(e.target.value)}

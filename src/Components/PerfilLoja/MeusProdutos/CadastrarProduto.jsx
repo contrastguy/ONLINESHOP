@@ -1,13 +1,39 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import { ApiProdutoCadastro } from '../../Services/apiLoja';
+
+
+
 
 function CadastrarProduto() {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  
+  const [loja_id, setLoja_id] = useState('')
+  const [nome, setNome] = useState('')
+  const [genero_produto_id, setGenero_produto_id]= useState('')
+  const [secao_produto_id, setSecao_produto_id]= useState('')
+  const [categoria, setCategoria]= useState('')
+  const [estilo, setEstilo]= useState('')
+  const [cor_produto, setCor_produto]= useState('')
+  const [qtd_estoque, setQtd_estoque]= useState('')
+  const [tamanho_produto, setTamanho_produto]= useState('')
+  const [valor, setValor]= useState('')
+  const [img_produto, setImg_produto]= useState('')
+  const [descricao, setDescricao]= useState('')
+
+  
+  function eventHandleCadastrarProduto(){
+    ApiProdutoCadastro({loja_id,nome, genero_produto_id, secao_produto_id, categoria, estilo, cor_produto, qtd_estoque, tamanho_produto, valor, img_produto, descricao})
+    .then((response)=>{console.log('llora')})
+    .catch((error)=>{console.log(error)}) 
+    
+  }
+  
+  
 
   return (
     <>
@@ -21,7 +47,14 @@ function CadastrarProduto() {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1"value={loja_id} onChange={(e)=>{setLoja_id(parseInt(e.target.value))}} >
+              <Form.Label>Loja_id</Form.Label>
+              <Form.Control
+                type="text"
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1"value={nome} onChange={(e)=>{setNome(e.target.value)}} >
               <Form.Label>Nome do produto</Form.Label>
               <Form.Control
                 type="text"
@@ -29,18 +62,18 @@ function CadastrarProduto() {
               />
             </Form.Group>
             <div className=' d-flex'>
-            <Form.Select aria-label="Default select example">
+            <Form.Select aria-label="Default select example" value={genero_produto_id} onChange={(e)=>{setGenero_produto_id(e.target.value)}} >
               <option>Gênero</option>
               <option value="1">Masculino</option>
               <option value="2">Feminino</option>
             </Form.Select>
-            <Form.Select aria-label="Default select example">
+            <Form.Select aria-label="Default select example" value={secao_produto_id} onChange={(e)=>{setSecao_produto_id(e.target.value)}}>
               <option>Seção</option>
               <option value="1">Adulto</option>
               <option value="2">Teen</option>
               <option value="3">Infantil</option>
             </Form.Select>
-            <Form.Select aria-label="Default select example">
+            <Form.Select aria-label="Default select example" value={categoria} onChange={(e)=>{setCategoria(e.target.value)}}>
               <option>Categoria</option>
               <option value="1" id='1'>Roupa</option>
               <option value="2" id='2'>Acessório</option>
@@ -48,7 +81,7 @@ function CadastrarProduto() {
               <option value="4" id='4'>Chapéu</option>
               <option value="5" id='5'>Óculos</option>
             </Form.Select>
-            <Form.Select aria-label="Default select example">
+            <Form.Select aria-label="Default select example"value={estilo} onChange={(e)=>{setEstilo(e.target.value)}}>
               <option>Estilo</option>
               <option value="1" id='1'>Casual</option>
               <option value="2" id='2'>Elegante</option>
@@ -58,21 +91,21 @@ function CadastrarProduto() {
               <option value="6" id='6'>Tradicional</option>
             </Form.Select>
             </div>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" value={cor_produto} onChange={(e)=>{setCor_produto(e.target.value)}}>
               <Form.Label>Cor</Form.Label>
               <Form.Control
                 type="text"
                 autoFocus
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" value={qtd_estoque} onChange={(e)=>{setQtd_estoque(parseInt(e.target.value))}}>
               <Form.Label>Quantidade de Estoque</Form.Label>
               <Form.Control
-                type="number"
+                type="integer"
                 autoFocus
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" value={tamanho_produto} onChange={(e)=>{setTamanho_produto(e.target.value)}}>
               <Form.Label>Tamanho</Form.Label>
               <Form.Control
                 type="text"
@@ -80,17 +113,25 @@ function CadastrarProduto() {
                 placeholder='Ex: M'
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" value={valor} onChange={(e)=>{setValor(parseFloat(e.target.value))}}>
               <Form.Label>Preço</Form.Label>
               <Form.Control
                 type="text"
                 autoFocus
                 placeholder='Ex: 25.90'
               />
-            </Form.Group>       
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formFileMultiple" value={img_produto} onChange={(e)=>{setImg_produto(e.target.value)}}>
+              <Form.Label>Adicionar imagem</Form.Label>
+              <Form.Control
+                type="file"
+                autoFocus
+              />
+              </Form.Group>       
             <Form.Group
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
+              value={descricao} onChange={(e)=>{setDescricao(e.target.value)}}
             >
               <Form.Label>Descrição</Form.Label>
               <Form.Control as="textarea" rows={3} />
@@ -101,7 +142,7 @@ function CadastrarProduto() {
           <Button variant="danger" onClick={handleClose}>
             Cancelar
           </Button>
-          <Button variant="success" onClick={handleClose}>
+          <Button variant="success" onClick={()=>{eventHandleCadastrarProduto()}}>
             Salvar 
           </Button>
         </Modal.Footer>
