@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar.jsx';
 import Componente from './ProtectedComponent.jsx';
+import { api } from '../Services/api.jsx';
 import './CSS/styles.css'
 
 
@@ -16,7 +17,7 @@ function Login() {
     
 
 
-    function handleLogin() {
+    const handleLogin = async () => {
         // ApiLogin({ email, senha }).then(
         //     (response) => {
         //         alert("Login funcionou")
@@ -34,6 +35,20 @@ function Login() {
         //         }
         //     }
         // )
+
+        try {
+            const url = "/login"
+            const res =  await api.post(url,{
+                "email": email,
+                "senha":senha
+            })
+            console.log(res.data)
+        } catch (error) {
+            console.log(error)
+        }
+
+
+
         
         return <Componente/>
         
