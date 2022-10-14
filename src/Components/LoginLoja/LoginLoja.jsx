@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import NavBar from '../NavBar/NavBar.jsx';
 import { ApiLojaLogin } from "../Services/apiLoja.jsx"
 import './CSS/styles.css'
 
@@ -80,7 +79,7 @@ function LoginLoja() {
                         </div>
                         <p className="link-secondary text-center mt-2 mb-4">
                             Não tem uma conta?
-                            <Link className="LinkCadastro text-danger" to="/cadastro-loja">
+                            <Link className="LinkCadastro text-danger cursor" to="/cadastro-loja">
                                 <strong> Cadastre-se</strong>
                             </Link>
                         </p>
