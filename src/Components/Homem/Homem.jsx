@@ -20,7 +20,7 @@ const Homem = () => {
     
     const TodosProdutos = async () => {
         try {
-          const url = "/produtos"
+          const url = "/produto-filtro/1"
           const res = await api.get(url)
            setListaProdutos(res.data);
            console.log(res.data);

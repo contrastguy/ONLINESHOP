@@ -24,7 +24,7 @@ const Mulher = () => {
     
     const TodosProdutos = async () => {
         try {
-          const url = "/produtos"
+          const url = "/produto-filtro/2"
           const res = await api.get(url)
            setListaProdutos(res.data);
            console.log(res.data);
