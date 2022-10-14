@@ -53,7 +53,7 @@ const NavBar = () => {
             <Nav className="justify-content-end mx-auto">
               <Nav.Link to="/carrinho" as={Navigator}>Carrinho</Nav.Link>
             </Nav>
-            <Nav.Link id="venda-conosco" to="/perfil/meus-produtos" className="link-secondary pe-4" as={Navigator}>Venda Conosco</Nav.Link>
+            <Nav.Link id="venda-conosco" to="/login-loja" className="link-secondary pe-4" as={Navigator}>Venda Conosco</Nav.Link>
             <NavDropdown
               className="justify-content-end me-5 link-secondary"
               title="Usuário"

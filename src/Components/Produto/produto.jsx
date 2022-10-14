@@ -6,7 +6,6 @@ import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
-import NavBar from '../NavBar/NavBar';
 import { useNavigate } from 'react-router-dom';
 import DolceGabbana from "../Mulher/Imagens/17528762_37436785_600.jpg"
 
@@ -76,7 +75,6 @@ export default function Cesta() {
 
   return (
     <>
-      <NavBar />
       <div className='body'>
 
         <div className='cesta shadow-lg p-4 col-11 bg-light'>
