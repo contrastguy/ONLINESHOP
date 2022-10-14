@@ -80,7 +80,7 @@ function LoginLoja() {
                         <p className="link-secondary text-center mt-2 mb-4">
                             Não tem uma conta?
                             <Link className="LinkCadastro text-danger cursor" to="/cadastro-loja">
-                                <strong> Cadastre-se</strong>
+                                Cadastre-se
                             </Link>
                         </p>
                     </div>

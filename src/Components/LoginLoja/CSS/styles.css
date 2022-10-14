@@ -3,9 +3,10 @@
 }
 
 .LinkCadastro {
-    color: #0E101C;
+    font-weight: bold;
     text-decoration: none;
 }
+
 .login {
     width: 100%;
     height: 100%;

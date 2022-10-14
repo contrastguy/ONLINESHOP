@@ -1,4 +1,5 @@
 import React,{ useState } from 'react';
+import { Link } from 'react-router-dom';
 import './CSS/styles.css'
 
 
@@ -137,7 +138,11 @@ function verifyTerms() {
 
                     }>Continuar</button>
                 </div>
-                <p className="link-secondary text-center mt-2 pb-3">Já tem uma conta? <strong onclick="paginaLogin()" className="cursor">Login</strong></p>
+                <p className="link-secondary text-center mt-2 pb-3">Já tem uma conta?
+                    <Link className="LinkCadastro text-danger" to="/login">
+                        Login
+                    </Link>
+                </p>
             </div>
         </div>
     </div>

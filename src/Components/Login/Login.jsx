@@ -90,8 +90,8 @@ function Login() {
                         </div>
                         <p className="link-secondary text-center mt-2 mb-4">
                             Não tem uma conta?
-                            <Link className="LinkCadastro" to="/cadastro">
-                                <strong>Cadastre-se</strong>
+                            <Link className="LinkCadastro text-danger" to="/cadastro">
+                                Cadastre-se
                             </Link>
                         </p>
                     </div>
