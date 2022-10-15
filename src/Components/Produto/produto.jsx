@@ -20,45 +20,49 @@ import './CSS/styles.css'
 
 
 export default function Cesta() {
-  const [listaProdutos, setListaProdutos] = useState([])
+  // const [listaProdutos, setListaProdutos] = useState([])
   const [qtd, setQtd] = useState(0)
   const [usuario_id, setUsuario_id] = useState(Number)
   const [total, setTotal] = useState(Number)
+  const [ProdutoId, setProdutoId] = useState([])
 
 
 
 
   const navigateCarrinho = useNavigate("/carrinho")
 
-  const nomeArr = listaProdutos.map((value) => {
-    return value.nome
-  })
-  
-  const nome = nomeArr[0]
-  const precoArr =  listaProdutos.map((value) => {
-    return value.valor
-  })
-  const preco = precoArr[0]
 
-  const tamanhoArr = listaProdutos.map((value) => {
-    return value.tamanho_produto
-  })
-  
-  const tamanho  = tamanhoArr[0]
-  
+  const nomeArr = ProdutoId.nome
+
+  const precoArr = ProdutoId.valor
+
+  const tamanhoArr = ProdutoId.tamanho_produto
 
 
 
-  const Produtos = async () => {
+  // const Produtos = async () => {
+  //   try {
+  //     const url = "/produtos"
+  //     const res = await api.get(url)
+  //     setListaProdutos(res.data)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
+  const ProdutoEspecífico = async () => {
     try {
-      const url = "/produtos"
+      const url = `/produto/${localStorage.getItem("produto_id")}`
       const res = await api.get(url)
-      console.log(res.data)
-      setListaProdutos(res.data)
+      setProdutoId(res.data)
     } catch (error) {
       console.log(error)
     }
   }
+
+
+
+
 
   useEffect(
     () => {
@@ -85,25 +89,35 @@ export default function Cesta() {
 
 
 
-      
-
-      Produtos()
-      return
-    }, [])
 
 
+      // Produtos()
+      ProdutoEspecífico()
+
+    }, [ProdutoEspecífico])
+
+  const img = ProdutoId.imagens_produto
 
 
 
-    function verificarTamanho(value){
+  const imgArr = img.map((value) => {
+    console.log(value.url_imagem)
+    return value.url_imagem
+  })
 
-      if(tamanho === value){
-        return alert("Esse tamanho está disponível")
-      }else{
-        return alert("Esse tamanho não está disponível")
-      }
 
-  } 
+
+
+
+  function verificarTamanho(value) {
+
+    if (tamanhoArr === value) {
+      return alert("Esse tamanho está disponível")
+    } else {
+      return alert("Esse tamanho não está disponível")
+    }
+
+  }
 
 
 
@@ -121,42 +135,42 @@ export default function Cesta() {
                 <Carousel.Item>
                   <img
                     className="d-block w-100 img-carousel"
-                    src={DolceGabbana}
+                    src={{ imgArr }}
                     alt="First slide"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100 img-carousel"
-                    src={DolceGabbana}
+                    src={{ imgArr }}
                     alt="Second slide"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100 img-carousel"
-                    src={DolceGabbana}
+                    src={{ imgArr }}
                     alt="Third slide"
                   />
                 </Carousel.Item>
               </Carousel>
             </div>
             <div className='mostruario col-6 pt-5'>
-              <img className='item-mostruario' src={DolceGabbana} alt="" />
-              <img className='item-mostruario' src={DolceGabbana} alt="" />
-              <img className='item-mostruario' src={DolceGabbana} alt="" />
+              <img className='item-mostruario' src={imgArr} alt="" />
+              <img className='item-mostruario' src={imgArr} alt="" />
+              <img className='item-mostruario' src={imgArr} alt="" />
             </div>
           </div>
 
           <div className='info-produto col-4 p-4 border-start'>
             <div className='d-flex justify-content-between'>
               <h3 className='link-secondary'>Produto</h3>
-              <h2>{nome}</h2>
+              <h2>{nomeArr}</h2>
               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="link-primary bi bi-star" viewBox="0 0 16 16">
                 <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
               </svg>
             </div>
-            <h1>{"R$ " + preco + ",00"}</h1>
+            <h1>{"R$ " + precoArr + ",00"}</h1>
             <div className='col-5 d-flex justify-content-between'>
               <h4>Tamanho: </h4>
               <ButtonGroup className="mb-2">
@@ -195,7 +209,7 @@ export default function Cesta() {
             <h5>{qtd + " produto(s)"}</h5>
             <div className='d-flex align-items-end '>
               <h5 className='pe-3'>Total:</h5>
-              <h3 onChange={(e) => { setTotal(e.target.value) }}>{(preco * qtd) + ",00"}</h3>
+              <h3 onChange={(e) => { setTotal(e.target.value) }}>{(precoArr * qtd) + ",00"}</h3>
             </div>
             <Button onClick={() => {
               // CadastroVendaCarrinho()

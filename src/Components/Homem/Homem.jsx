@@ -51,9 +51,11 @@ const Homem = () => {
             <Container>
           <Row>
             {listaProdutos.map((prod,index) => {
+              
               return (
                 <Post 
                 key={index}
+                id={prod.produto_id}
                 nome={prod.nome}
                 image={prod.imagens_produto[0].url_imagem}
                 descricao={prod.descricao}

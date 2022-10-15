@@ -25,7 +25,10 @@ function Post(props) {
                         <Card.Text style={{height:"10rem"}}>
                             {props.descricao}
                         </Card.Text>
-                        <Button onClick={() =>  { navigateProduto("/produto") }} variant="danger">Comprar</Button>
+                        <Button onClick={() =>  { 
+                            navigateProduto("/produto") 
+                            localStorage.setItem("produto_id",`${props.id}`)
+                    }} variant="danger">Comprar</Button>
                     </Card.Body>
                 </Card>
             </Col>
