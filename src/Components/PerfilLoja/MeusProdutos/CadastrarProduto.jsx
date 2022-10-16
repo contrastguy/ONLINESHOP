@@ -16,8 +16,8 @@ function CadastrarProduto() {
   const [nome, setNome] = useState('')
   const [genero_produto_id, setGenero_produto_id]= useState('')
   const [secao_produto_id, setSecao_produto_id]= useState('')
-  const [categoria, setCategoria]= useState('')
-  const [estilo, setEstilo]= useState('')
+  const [categoria_id, setCategoria_id]= useState('')
+  const [estilo_id, setEstilo_id]= useState('')
   const [cor_produto, setCor_produto]= useState('')
   const [qtd_estoque, setQtd_estoque]= useState('')
   const [tamanho_produto, setTamanho_produto]= useState('')
@@ -27,11 +27,14 @@ function CadastrarProduto() {
 
   
   function eventHandleCadastrarProduto(){
-    ApiProdutoCadastro({loja_id,nome, genero_produto_id, secao_produto_id, categoria, estilo, cor_produto, qtd_estoque, tamanho_produto, valor, img_produto, descricao})
-    .then((response)=>{console.log('llora')})
-    .catch((error)=>{console.log(error)}) 
+    ApiProdutoCadastro({loja_id,nome, genero_produto_id, secao_produto_id, categoria_id, estilo_id, cor_produto, qtd_estoque, tamanho_produto, valor, img_produto, descricao})
+    .then((response)=>{
+      console.log('llora')})
+    .catch((error)=>{
+    console.log(error)}) 
     
   }
+
   
   
 
@@ -62,7 +65,7 @@ function CadastrarProduto() {
               />
             </Form.Group>
             <div className=' d-flex'>
-            <Form.Select aria-label="Default select example" value={genero_produto_id} onChange={(e)=>{setGenero_produto_id(e.target.value)}} >
+            <Form.Select aria-label="Default select example" value={genero_produto_id} onChange={(e)=>{setGenero_produto_id(parseInt(e.target.value))}} >
               <option>Gênero</option>
               <option value="1">Masculino</option>
               <option value="2">Feminino</option>
@@ -73,7 +76,7 @@ function CadastrarProduto() {
               <option value="2">Teen</option>
               <option value="3">Infantil</option>
             </Form.Select>
-            <Form.Select aria-label="Default select example" value={categoria} onChange={(e)=>{setCategoria(e.target.value)}}>
+            <Form.Select aria-label="Default select example" value={categoria_id} onChange={(e)=>{setCategoria_id(e.target.value)}}>
               <option>Categoria</option>
               <option value="1" id='1'>Roupa</option>
               <option value="2" id='2'>Acessório</option>
@@ -81,7 +84,7 @@ function CadastrarProduto() {
               <option value="4" id='4'>Chapéu</option>
               <option value="5" id='5'>Óculos</option>
             </Form.Select>
-            <Form.Select aria-label="Default select example"value={estilo} onChange={(e)=>{setEstilo(e.target.value)}}>
+            <Form.Select aria-label="Default select example"value={estilo_id} onChange={(e)=>{setEstilo_id(e.target.value)}}>
               <option>Estilo</option>
               <option value="1" id='1'>Casual</option>
               <option value="2" id='2'>Elegante</option>

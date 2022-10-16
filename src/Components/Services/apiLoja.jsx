@@ -4,8 +4,6 @@ import axios from "axios"
 
 function ApiLojaLogin(LoginData) {
 
-
-    console.log("Componente Construído")
     return axios({
         method: "post",
         url:'https://onlineshop-1.herokuapp.com/loja/login',
@@ -24,7 +22,6 @@ function ApiLojaCadastro(data){
 }
 
 function ApiProdutoCadastro(data){
-    alert(data)
     return axios({
         method:"post",
         url: 'https://onlineshop-1.herokuapp.com/produto/cadastro',
@@ -33,4 +30,40 @@ function ApiProdutoCadastro(data){
     })
 }
 
-export {ApiLojaCadastro, ApiLojaLogin, ApiProdutoCadastro}
+function GeneroProduto(data){
+    return axios({
+        method:"get",
+        url:'https://onlineshop-1.herokuapp.com/generos',
+        data:data,
+    headers:{ "Access-Control-Allow-Origin":"*" }
+    })
+} 
+
+function CategoriaProduto(data){
+    return axios({
+        method:"get",
+        url:'https://onlineshop-1.herokuapp.com/categorias',
+        data:data,
+    headers:{ "Access-Control-Allow-Origin":"*" }
+    })
+} 
+
+function EstiloProduto(data){
+    return axios({
+        method:"get",
+        url:'https://onlineshop-1.herokuapp.com/estilos',
+        data:data,
+    headers:{ "Access-Control-Allow-Origin":"*" }
+    })
+}
+
+function SecaoProduto(data){
+    return axios({
+        method:"get",
+        url:'https://onlineshop-1.herokuapp.com/secoes',
+        data:data,
+    headers:{ "Access-Control-Allow-Origin":"*" }
+    })
+} 
+
+export {ApiLojaCadastro, ApiLojaLogin, ApiProdutoCadastro, GeneroProduto, CategoriaProduto, EstiloProduto, SecaoProduto}
