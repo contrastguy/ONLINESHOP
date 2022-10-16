@@ -1,8 +1,10 @@
+import { getValue } from '@testing-library/user-event/dist/utils';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { ApiProdutoCadastro } from '../../Services/apiLoja';
+
 
 
 
@@ -24,6 +26,7 @@ function CadastrarProduto() {
   const [valor, setValor]= useState('')
   const [img_produto, setImg_produto]= useState('')
   const [descricao, setDescricao]= useState('')
+  
 
   
   function eventHandleCadastrarProduto(){
@@ -35,8 +38,14 @@ function CadastrarProduto() {
     
   }
 
+  function RegistrarValor(val){
+    console.log(val.target.value)
+  }
+
   
+
   
+  // parseInt(e.target.value)
 
   return (
     <>
@@ -65,7 +74,7 @@ function CadastrarProduto() {
               />
             </Form.Group>
             <div className=' d-flex'>
-            <Form.Select aria-label="Default select example" value={genero_produto_id} onChange={(e)=>{setGenero_produto_id(parseInt(e.target.value))}} >
+            <Form.Select aria-label="Default select example" value={genero_produto_id} onChange={RegistrarValor()} >
               <option>Gênero</option>
               <option value="1">Masculino</option>
               <option value="2">Feminino</option>
