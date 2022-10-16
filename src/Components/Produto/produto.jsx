@@ -38,6 +38,7 @@ export default function Cesta() {
 
   const tamanhoArr = ProdutoId.tamanho_produto
 
+  const imgArr =  ProdutoId.imagens_produto[0]?.url_imagem
 
 
   // const Produtos = async () => {
@@ -55,6 +56,7 @@ export default function Cesta() {
       const url = `/produto/${localStorage.getItem("produto_id")}`
       const res = await api.get(url)
       setProdutoId(res.data)
+      console.log(res.data)
     } catch (error) {
       console.log(error)
     }
@@ -94,16 +96,13 @@ export default function Cesta() {
       // Produtos()
       ProdutoEspecífico()
 
-    }, [ProdutoEspecífico])
+    }, [])
 
-  const img = ProdutoId.imagens_produto
+ 
 
 
 
-  const imgArr = img.map((value) => {
-    console.log(value.url_imagem)
-    return value.url_imagem
-  })
+  
 
 
 
@@ -135,21 +134,21 @@ export default function Cesta() {
                 <Carousel.Item>
                   <img
                     className="d-block w-100 img-carousel"
-                    src={{ imgArr }}
+                    src={ imgArr }
                     alt="First slide"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100 img-carousel"
-                    src={{ imgArr }}
+                    src={imgArr}
                     alt="Second slide"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100 img-carousel"
-                    src={{ imgArr }}
+                    src={imgArr}
                     alt="Third slide"
                   />
                 </Carousel.Item>
