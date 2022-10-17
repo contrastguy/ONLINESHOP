@@ -59,12 +59,17 @@ const NavBar = () => {
               title="Usuário"
               id={`offcanvasNavbarDropdown-expand-lg`}
             >
-              <NavDropdown.Item to="/perfil" as={Navigator}>Usuário</NavDropdown.Item>
+              <NavDropdown.Item to="/perfil" as={Navigator}>
+                Usuário
+              </NavDropdown.Item>
               <NavDropdown.Item to="/login" as={Navigator}>
                 Login
               </NavDropdown.Item>
               <NavDropdown.Item to="/cadastro" as={Navigator}>
                 Cadastre-se
+              </NavDropdown.Item>
+              <NavDropdown.Item to="/" as={Navigator}>
+              Logout
               </NavDropdown.Item>
             </NavDropdown>
             
