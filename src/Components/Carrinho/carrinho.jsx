@@ -2,20 +2,20 @@ import React, { useState, useEffect, Children } from "react";
 import Card from 'react-bootstrap/Card';
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import { Badge, Button } from "react-bootstrap";
+import { Badge, Button, Image } from "react-bootstrap";
 import { api } from "../Services/api";
 
 import "./CSS/styles.css"
 
 
 const Carrinho = () => {
-  const [ProdutoId, setProdutoId] = useState([])
+  const [ProdutoId, setProdutoId] = useState({imagens_produto:[{url_imagem:""}]})
   const [qtd, setQtd] = useState(1)
   const [card, setCard] = useState(true)
   const [total, setTotal] = useState(Number)
   const [usuario_id, setUsuario_id] = useState(1)
   const nomeArr = ProdutoId.nome
-
+  
 
   const precoArr = ProdutoId.valor
 
@@ -33,12 +33,12 @@ const Carrinho = () => {
     }
   }
 
+  // ProdutoId.imagens_produto[0].url_imagem
   const ProdutoEspecífico = async () => {
     try {
       const url = `/produto/${localStorage.getItem("produto_id")}`
       const res = await api.get(url)
       setProdutoId(res.data)
-      console.log(res.data)
     } catch (error) {
       console.log(error)
     }
@@ -59,21 +59,16 @@ const Carrinho = () => {
     }
   }
 
-  const imgArr = ProdutoId.imagens_produto[0]?.url_imagem
+  
 
 
 
   useEffect(
     () => {
-      ProdutoEspecífico()
-
-
+     ProdutoEspecífico()
+      // console.log(ProdutoId);
     }, []
   )
-
-
-
-
 
 
   return (
@@ -90,7 +85,7 @@ const Carrinho = () => {
             <Card className="card-container">
               <Button variant="danger" onClick={DeleteVenda}>Excluir</Button>
               <div className="img-carrinho">
-                <Card.Img class="img-card" variant="top" src={imgArr} />
+                <Card.Img class="img-card" variant="top" src={ProdutoId.imagens_produto[0].url_imagem} />
               </div>
               <Card.Body>
                 <div className="items-carrinho">

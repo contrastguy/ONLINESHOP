@@ -34,12 +34,12 @@ function Posts() {
             {listaProdutos.map((prod) => {
               return (
                 <Post 
-                key={prod.produto_id}
+                key={prod}
+                id={prod.id}
                 nome={prod.nome}
-                image={prod.imagens_produto[0].url_imagem}
+                image={prod.imagens_produto[0]?.url_imagem}
                 descricao={prod.descricao}
                 />
-                
               )  
             })}
           </Row>

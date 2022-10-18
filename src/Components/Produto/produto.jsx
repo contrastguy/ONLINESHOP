@@ -23,7 +23,7 @@ export default function Cesta() {
   const [qtd, setQtd] = useState(0)
   const [usuario_id, setUsuario_id] = useState(Number)
   const [total, setTotal] = useState(Number)
-  const [ProdutoId, setProdutoId] = useState([])
+  const [ProdutoId, setProdutoId] = useState({imagens_produto:[{url_imagem:""}]})
 
 
 
@@ -62,7 +62,7 @@ export default function Cesta() {
     }
   }
 
-  const imgArr =  ProdutoId.imagens_produto[0]?.url_imagem
+ 
 
   
 
@@ -126,30 +126,30 @@ export default function Cesta() {
                 <Carousel.Item>
                   <img
                     className="d-block w-100 img-carousel"
-                    src={ imgArr }
+                    src={ ProdutoId.imagens_produto[0].url_imagem }
                     alt="First slide"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100 img-carousel"
-                    src={imgArr}
+                    src={ProdutoId.imagens_produto[0].url_imagem}
                     alt="Second slide"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100 img-carousel"
-                    src={imgArr}
+                    src={ProdutoId.imagens_produto[0].url_imagem}
                     alt="Third slide"
                   />
                 </Carousel.Item>
               </Carousel>
             </div>
             <div className='mostruario col-6 pt-5'>
-              <img className='item-mostruario' src={imgArr} alt="" />
-              <img className='item-mostruario' src={imgArr} alt="" />
-              <img className='item-mostruario' src={imgArr} alt="" />
+              <img className='item-mostruario' src={ProdutoId.imagens_produto[0].url_imagem} alt="" />
+              <img className='item-mostruario' src={ProdutoId.imagens_produto[0].url_imagem} alt="" />
+              <img className='item-mostruario' src={ProdutoId.imagens_produto[0].url_imagem} alt="" />
             </div>
           </div>
 
