@@ -16,21 +16,19 @@ import { useNavigate } from "react-router-dom";
 function Post(props) {
     const navigateProduto = useNavigate("/produto") 
     return (
-        <> 
-
-            <Col className='col-6'>
-            <Card className="m-4" style={{ width: '18rem' }}>
+        <>
+            <Col style={{width:'25%'}} className='col-4'>
+            <Card className="m-4" >
                     <Card.Img variant="top" src={props.image} />
                     <Card.Body>
                         <Card.Title>{props.nome}</Card.Title>
                         <Card.Text style={{height:"10rem"}}>
                             {props.descricao}
                         </Card.Text>
-                        <Button onClick={() =>{
-                            const id = props.produto_id
-                            {/* localStorage.setItem("produto", id) */}
-                            alert(id)
-                        }} variant="danger">Adcionar ao carrinho</Button>
+                        <Button onClick={() =>  { 
+                            navigateProduto("/produto") 
+                            localStorage.setItem("produto_id",`${props.id}`)
+                    }} variant="danger">Comprar</Button>
                     </Card.Body>
                 </Card>
             </Col>

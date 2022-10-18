@@ -1,5 +1,6 @@
 import React,{ useState } from 'react';
-import { Link } from 'react-router-dom';
+import NavBar from '../NavBar/NavBar';
+import { api } from '../Services/api';
 import './CSS/styles.css'
 
 
@@ -19,12 +20,33 @@ const [check,setCheck] = useState(false)
 
  
 
-function eventHandleCadastro(){ 
+const eventHandleCadastro = async () => { 
     // ApiCadastro({
     //     nome,sobrenome,email,celular,senha,confSenha,cidade,logradouro,rua,numero
     // }).then(
     //   (response) => { alert("Funcionou")}
     // ).catch((error)=>{console.log(error)})
+    
+    try {
+        const url = "/usuario/cadastro"
+        const res =  await api.post(url,{
+            "nome":nome,
+            "sobrenome":sobrenome,
+            "email": email,
+            "celular": celular,
+            "senha":senha,
+            "CEP":CEP,
+            "cidade": cidade,
+            "logradouro": logradouro,
+            "rua":rua,
+            "numero":numero
+        })
+        console.log(res.data)
+    } catch (error) {
+        console.log(error)
+    }
+
+
 }
 
 function verifyTerms() {
