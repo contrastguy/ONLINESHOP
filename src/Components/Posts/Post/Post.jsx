@@ -16,7 +16,8 @@ import { useNavigate } from "react-router-dom";
 function Post(props) {
     const navigateProduto = useNavigate("/produto") 
     return (
-        <>
+        <> 
+
             <Col className='col-6'>
             <Card className="m-4" style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={props.image} />
@@ -25,7 +26,11 @@ function Post(props) {
                         <Card.Text style={{height:"10rem"}}>
                             {props.descricao}
                         </Card.Text>
-                        <Button onClick={() =>  { navigateProduto("/produto") }} variant="danger">Comprar</Button>
+                        <Button onClick={() =>{
+                            const id = props.produto_id
+                            {/* localStorage.setItem("produto", id) */}
+                            alert(id)
+                        }} variant="danger">Adcionar ao carrinho</Button>
                     </Card.Body>
                 </Card>
             </Col>

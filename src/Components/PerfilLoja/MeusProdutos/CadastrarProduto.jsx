@@ -74,7 +74,7 @@ function CadastrarProduto() {
               />
             </Form.Group>
             <div className=' d-flex'>
-            <Form.Select aria-label="Default select example" value={genero_produto_id} onChange={RegistrarValor()} >
+            <Form.Select aria-label="Default select example" value={genero_produto_id} onChange={(e)=>{setGenero_produto_id(e.target.value)}} >
               <option>Gênero</option>
               <option value="1">Masculino</option>
               <option value="2">Feminino</option>

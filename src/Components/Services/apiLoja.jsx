@@ -2,6 +2,7 @@
 import axios from "axios"
 
 
+
 function ApiLojaLogin(LoginData) {
 
     return axios({
@@ -66,4 +67,12 @@ function SecaoProduto(data){
     })
 } 
 
-export {ApiLojaCadastro, ApiLojaLogin, ApiProdutoCadastro, GeneroProduto, CategoriaProduto, EstiloProduto, SecaoProduto}
+function ProdutoId(id){
+    return axios({
+        method:"get",
+        url:`https://onlineshop-1.herokuapp.com/produto/${id}`,
+        headers:{ "Access-Control-Allow-Origin":"*" }
+    })
+}
+
+export {ApiLojaCadastro, ApiLojaLogin, ApiProdutoCadastro, GeneroProduto, CategoriaProduto, EstiloProduto, SecaoProduto, ProdutoId}

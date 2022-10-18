@@ -20,20 +20,16 @@ const HomePage = () => {
     
     const TodosProdutos = async () => {
         try {
-          const url = "/produtos"
-          const res = await api.get(url)
-           setListaProdutos(res.data);
-           console.log(res.data);
-          
-        } catch (err) {
+            const url = "/produtos"
+            const res = await api.get(url)
+            setListaProdutos(res.data);
+            console.log(res.data);
+          } catch (err) {
           console.log(err);
         }
       }
       
-    
-    
-    
-        useEffect(()=>{
+      useEffect(()=>{
           TodosProdutos()
            return 
         },[])
