@@ -38,9 +38,7 @@ function CadastrarProduto() {
     
   }
 
-  function RegistrarValor(val){
-    console.log(val.target.value)
-  }
+  
 
   
 
