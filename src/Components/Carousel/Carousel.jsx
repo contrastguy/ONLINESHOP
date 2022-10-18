@@ -11,8 +11,8 @@ const Carrossel = () => {
           setIndex(selectedIndex);
         };
     return (
-            <div>
-                <Carousel variant="dark" activeIndex={index} onSelect={handleSelect}>
+            <div className='max'>
+                <Carousel  variant="dark" activeIndex={index} onSelect={handleSelect}>
                     <Carousel.Item>
                         <Image
                             className="d-block w-75  mx-auto"
