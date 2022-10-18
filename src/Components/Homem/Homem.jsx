@@ -35,7 +35,7 @@ const Homem = () => {
     
         useEffect(()=>{
           TodosProdutos()
-           return 
+          
         },[])
 
     return (

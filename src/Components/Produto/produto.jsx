@@ -38,7 +38,6 @@ export default function Cesta() {
 
   const tamanhoArr = ProdutoId.tamanho_produto
 
-  const imgArr =  ProdutoId.imagens_produto[0]?.url_imagem
 
 
   // const Produtos = async () => {
@@ -51,6 +50,8 @@ export default function Cesta() {
   //   }
   // }
 
+
+  
   const ProdutoEspecífico = async () => {
     try {
       const url = `/produto/${localStorage.getItem("produto_id")}`
@@ -61,6 +62,22 @@ export default function Cesta() {
       console.log(error)
     }
   }
+
+  const imgArr =  ProdutoId.imagens_produto[0]?.url_imagem
+
+  
+
+  function verificarTamanho(value) {
+
+    if (tamanhoArr === value) {
+      return alert("Esse tamanho está disponível")
+    } else {
+      return alert("Esse tamanho não está disponível")
+    }
+
+  }
+
+
 
 
 
@@ -99,29 +116,6 @@ export default function Cesta() {
     }, [])
 
  
-
-
-
-  
-
-
-
-
-
-  function verificarTamanho(value) {
-
-    if (tamanhoArr === value) {
-      return alert("Esse tamanho está disponível")
-    } else {
-      return alert("Esse tamanho não está disponível")
-    }
-
-  }
-
-
-
-
-
   return (
     <>
       <NavBar />
