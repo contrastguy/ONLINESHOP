@@ -8,7 +8,8 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useNavigate } from 'react-router-dom';
 import DolceGabbana from "../Mulher/Imagens/17528762_37436785_600.jpg"
-import { api } from '../Services/api';
+import { ProdutoId } from '../Services/apiLoja';
+
 
 import './CSS/styles.css'
 
@@ -16,10 +17,9 @@ import './CSS/styles.css'
 
 
 
-
-
 export default function Cesta() {
-  // const [listaProdutos, setListaProdutos] = useState([])
+
+  const [listaProdutos, setListaProdutos] = useState([])
   const [qtd, setQtd] = useState(0)
   const [usuario_id, setUsuario_id] = useState(Number)
   const [total, setTotal] = useState(Number)

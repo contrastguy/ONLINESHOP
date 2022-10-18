@@ -1,6 +1,7 @@
 import React,{ useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import { api } from '../Services/api';
+import { Link } from 'react-router-dom'
 import './CSS/styles.css'
 
 
