@@ -16,7 +16,7 @@ const Homepage = () => {
 
 
 
-  const [listaProdutos, setListaProdutos] = useState({ imagens_produto: [{ url_imagem: "" }] })
+  const [listaProdutos, setListaProdutos] = useState([{ imagens_produto: [{ "url_imagem": "" }] }])
 
 
   const TodosProdutos = async () => {
@@ -30,8 +30,6 @@ const Homepage = () => {
       console.log(err);
     }
   }
-
-
 
 
   useEffect(() => {
@@ -57,7 +55,7 @@ const Homepage = () => {
                   key={index}
                   produto_id={prod.produto_id}
                   nome={prod.nome}
-                  image={prod.imagens_produto[0].url_imagem}
+                  image={prod.imagens_produto.length > 0 ? prod.imagens_produto[0].url_imagem : "https://cdn-icons-png.flaticon.com/512/1720/1720759.png"}
                   descricao={prod.descricao}
                 />
               )
