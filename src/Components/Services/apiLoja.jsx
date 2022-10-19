@@ -75,4 +75,6 @@ function ProdutoId(id){
     })
 }
 
+
+
 export {ApiLojaCadastro, ApiLojaLogin, ApiProdutoCadastro, GeneroProduto, CategoriaProduto, EstiloProduto, SecaoProduto, ProdutoId}

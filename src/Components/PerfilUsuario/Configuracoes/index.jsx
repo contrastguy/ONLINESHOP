@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles.css";
 import {Button} from 'react-bootstrap'
+import EnderecoUsuario from "./EnderecoUsuario";
+import ContatoUsuario from "./Contato";
 
 function Configuracoes() {
     return(
@@ -10,9 +12,8 @@ function Configuracoes() {
             </div>
             <div className="d-flex container justify-content-around h-50">
                 <div className="">   
-                    <Button variant="outline-secondary" className="btn-md">Atualizar informações de     
-                        endereço</ Button>{' '}
-                    <Button variant="outline-secondary">Atualizar informações de contato</Button>{' '}
+                    <EnderecoUsuario />
+                    <ContatoUsuario />
                 </div>
                 
             </div>
