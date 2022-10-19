@@ -1,0 +1,33 @@
+.fotoPerfil{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.topicos{
+    height: 60%;
+    background-color: coral;
+}
+
+.radius-0{
+    border-radius: 0%;
+}
+
+.altura{
+    height: 80vh;
+}
+
+.dados{
+    background-color: red;
+    width: 60%;
+}
+
+.input_dados_perfil{
+    background-color: transparent;
+    border: none;
+}
+
+.cursor{
+    cursor: pointer;
+}
+

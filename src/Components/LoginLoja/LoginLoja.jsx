@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Componente from './ProtectedComponent.jsx';
-import { api } from '../Services/api.jsx';
+import { ApiLojaLogin } from "../Services/apiLoja.jsx"
 import './CSS/styles.css'
 
 
@@ -9,77 +8,52 @@ import './CSS/styles.css'
 
 
 
-function Login() {
+function LoginLoja() {
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
     const [temErro, setTemErro] = useState(false)
     
 
 
-    const handleLogin = async () => {
-        // ApiLogin({ email, senha }).then(
-        //     (response) => {
-        //         alert("Login funcionou")
-        //         const dados = response.data
-        //         if (dados) {
-        //             localStorage.setItem('Token', JSON.stringify(dados))
-        //             window.location.reload()
-        //         }
-        //     }
-        // ).catch(
-        //     (error) => {
-        //         console.log(error)
-        //         if (error.response.status == 401) {
-        //             setTemErro(true)
-        //         }
-        //     }
-        // )
-
-        try {
-            const url = "/login"
-            const res =  await api.post(url,{
-                "email": email,
-                "senha":senha
-            })
-            console.log(res.data)
-        } catch (error) {
-            console.log(error)
-        }
-
-
-
-        
-        return <Componente/>
-        
+    function handleLoginLoja() {
+        ApiLojaLogin({ email, senha }).then(
+            (response) => {
+                alert("Login funcionou")
+                const dados = response.data
+                if (dados) {
+                    localStorage.setItem('Token', JSON.stringify(dados))
+                    window.location.reload()
+                }
+            }
+            ).catch(
+                (error) => {
+                    console.log(error)
+                    if (error.response.status == 401) {
+                        setTemErro(true)
+                    }
+                }
+            )
     }
-
-    
-
-    
-
-
-
 
 
     return (
         <>
             <div className="vh-100 position-relative">
                 <div className="login d-flex">
-                    <Componente/>
                     <div className="d-flex col-5 bg-light justify-content-center flex-column cardLogCad m-auto ">
 
                         <div className="d-flex justify-content-center align-content-center position-relative">
-                            <h1 className="font title link-secondary mt-5">Login</h1>
+                            <h1 className="font title link-secondary mt-5">Login Loja</h1>
 
                         </div>
                         <div className="d-flex justify-content-center">
                             <form className="d-flex  flex-column mt-4 mb-2 col-8">
-                                <label for="email" className="font mb-2">Email:</label>
+                                <label htmlFor="email" className="font mb-2">Email:</label>
                                 <input type="email" name="email" id="authEmail" className="input-quest focus-0 col-12 text-black mb-4" value={email} onChange={e => {
                                     setEmail(e.target.value)
-                                    if (temErro != false) setTemErro(false)
+                                    if (temErro) setTemErro(true)
                                 }} />
-                                <label for="password" className="font mb-2">Password:</label>
+                                <label htmlFor="password" className="font mb-2">Senha:</label>
                                 <input type="password" name="password" id="authPassword" className="input-quest focus-0 mb-2 text-black" value={senha} onChange={e => setSenha(e.target.value)} />
                                 <div className="ocult" id="erroLogin">
                                     <div className="d-flex justify-content-center align-content-center">
@@ -101,11 +75,11 @@ function Login() {
                             </form>
                         </div>
                         <div className="d-flex col-12 justify-content-center mt-4">
-                            <button className="font btn btn-danger col-6 register" onClick={handleLogin} id="login">Continuar</button>
+                            <button className="font btn btn-danger col-6 register" onClick={handleLoginLoja} id="login">Continuar</button>
                         </div>
                         <p className="link-secondary text-center mt-2 mb-4">
                             Não tem uma conta?
-                            <Link className="LinkCadastro text-danger" to="/cadastro">
+                            <Link className="LinkCadastro text-danger cursor" to="/cadastro-loja">
                                 Cadastre-se
                             </Link>
                         </p>
@@ -117,4 +91,4 @@ function Login() {
     );
 }
 
-export default Login
+export default LoginLoja
