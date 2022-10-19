@@ -115,13 +115,13 @@ const Carrinho = () => {
             </Card>)}
 
         </div>
-        <div className="secao-ordem-compra">
+        <div className="secao-ordem-compra text-white">
           <h3>Ordem de Compra</h3>
           <hr />
           <div className="text-secao-compra">
             <h4>Quantidade de Items: {qtd}</h4>
             <h5 onChange={(e) => { setTotal(e.target.value) }}>Total: {(precoArr * qtd)}</h5>
-            <Button onClick={CadastroVendaCarrinho} variant="outline-secondary">Finalizar Pedido</Button>
+            <Button className="text-white" onClick={CadastroVendaCarrinho} variant="outline-secondary">Finalizar Pedido</Button>
           </div>
         </div>
       </div>

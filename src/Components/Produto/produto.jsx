@@ -119,7 +119,7 @@ export default function Cesta() {
     <>
       <div className='body'>
 
-        <div className='cesta shadow-lg p-4 col-11 bg-light'>
+        <div className='cesta shadow-lg p-4 col-8 bg-light'>
           <div className='info-imagem col-5'>
             <div className=''>
               <Carousel variant="dark">
@@ -180,8 +180,8 @@ export default function Cesta() {
               </ButtonGroup>
             </div>
             <div className='d-flex'>
-              <h5>Quantidade:</h5>
-              <input onChange={(event) => { setQtd(event.target.value) }} type="number" className='ms-2 col-2' />
+              <h5>Quantidade Estoque:</h5>
+              <h5>{ProdutoId.qtd_estoque}</h5>
             </div>
             <div className='dropdown d-flex'>
               <h5 className='me-2'>Cor :</h5>
@@ -193,14 +193,6 @@ export default function Cesta() {
                   <Dropdown.Item href="#/action-3">Vermelho</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-            </div>
-          </div>
-          <div className='col-3 resumo p-4 border-start ps-4'>
-            <h3 className='link-secondary pt-3'>Resumo do Pedido</h3>
-            <h5>{qtd + " produto(s)"}</h5>
-            <div className='d-flex align-items-end '>
-              <h5 className='pe-3'>Total:</h5>
-              <h3 onChange={(e) => { setTotal(e.target.value) }}>{(precoArr * qtd) + ",00"}</h3>
             </div>
             <Button onClick={() => {
               // CadastroVendaCarrinho()
