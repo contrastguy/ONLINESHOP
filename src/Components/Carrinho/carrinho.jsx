@@ -82,7 +82,7 @@ const Carrinho = () => {
           </h3>
 
           {card && (
-            <Card className="card-container">
+            <Card className="card-container text-white">
               <Button variant="danger" onClick={DeleteVenda}>Excluir</Button>
               <div className="img-carrinho">
                 <Card.Img class="img-card" variant="top" src={ProdutoId.imagens_produto[0].url_imagem} />
@@ -107,7 +107,7 @@ const Carrinho = () => {
           <div className="text-secao-compra">
             <h4>Quantidade de Items: {qtd}</h4>
             <h5 onChange={(e) => { setTotal(e.target.value) }}>Total: {(precoArr * qtd)}</h5>
-            <Button onClick={CadastroVendaCarrinho} variant="outline-secondary">Finalizar Pedido</Button>
+            <Button className="text-white" onClick={CadastroVendaCarrinho} variant="outline-secondary">Finalizar Pedido</Button>
           </div>
         </div>
       </div>
