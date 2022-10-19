@@ -60,6 +60,7 @@ function verifyTerms() {
 
   return (
     <div>
+        <NavBar/>
         <div className="login p-1 position-relative">
             
             <div className="bg-light cardLogCad m-auto mt-4 mb-4 col-5">
@@ -161,11 +162,7 @@ function verifyTerms() {
 
                     }>Continuar</button>
                 </div>
-                <p className="link-secondary text-center mt-2 pb-3">Já tem uma conta?
-                    <Link className="LinkCadastro text-danger" to="/login">
-                        Login
-                    </Link>
-                </p>
+                <p className="link-secondary text-center mt-2 pb-3">Já tem uma conta? <strong onclick="paginaLogin()" className="cursor">Login</strong></p>
             </div>
         </div>
     </div>

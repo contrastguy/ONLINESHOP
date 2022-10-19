@@ -11,7 +11,6 @@ import DolceGabbana from "../Mulher/Imagens/17528762_37436785_600.jpg"
 import { ProdutoId } from '../Services/apiLoja';
 import { api } from '../Services/api';
 
-
 import './CSS/styles.css'
 
 
@@ -24,7 +23,7 @@ export default function Cesta() {
   const [qtd, setQtd] = useState(0)
   const [usuario_id, setUsuario_id] = useState(Number)
   const [total, setTotal] = useState(Number)
-  const [ProdutoId, setProdutoId] = useState([])
+  const [ProdutoId, setProdutoId] = useState({imagens_produto:[{url_imagem:""}]})
 
 
 
@@ -63,7 +62,7 @@ export default function Cesta() {
     }
   }
 
-  const imgArr =  ProdutoId.imagens_produto[0]?.url_imagem
+ 
 
   
 
@@ -120,37 +119,37 @@ export default function Cesta() {
     <>
       <div className='body'>
 
-        <div className='cesta shadow-lg p-4 col-11 bg-light'>
+        <div className='cesta shadow-lg p-4 col-8 bg-light'>
           <div className='info-imagem col-5'>
             <div className=''>
               <Carousel variant="dark">
                 <Carousel.Item>
                   <img
                     className="d-block w-100 img-carousel"
-                    src={ imgArr }
+                    src={ ProdutoId.imagens_produto[0].url_imagem }
                     alt="First slide"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100 img-carousel"
-                    src={imgArr}
+                    src={ProdutoId.imagens_produto[0].url_imagem}
                     alt="Second slide"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100 img-carousel"
-                    src={imgArr}
+                    src={ProdutoId.imagens_produto[0].url_imagem}
                     alt="Third slide"
                   />
                 </Carousel.Item>
               </Carousel>
             </div>
             <div className='mostruario col-6 pt-5'>
-              <img className='item-mostruario' src={imgArr} alt="" />
-              <img className='item-mostruario' src={imgArr} alt="" />
-              <img className='item-mostruario' src={imgArr} alt="" />
+              <img className='item-mostruario' src={ProdutoId.imagens_produto[0].url_imagem} alt="" />
+              <img className='item-mostruario' src={ProdutoId.imagens_produto[0].url_imagem} alt="" />
+              <img className='item-mostruario' src={ProdutoId.imagens_produto[0].url_imagem} alt="" />
             </div>
           </div>
 
@@ -181,8 +180,8 @@ export default function Cesta() {
               </ButtonGroup>
             </div>
             <div className='d-flex'>
-              <h5>Quantidade:</h5>
-              <input onChange={(event) => { setQtd(event.target.value) }} type="number" className='ms-2 col-2' />
+              <h5>Quantidade Estoque:</h5>
+              <h5>{ProdutoId.qtd_estoque}</h5>
             </div>
             <div className='dropdown d-flex'>
               <h5 className='me-2'>Cor :</h5>
@@ -194,14 +193,6 @@ export default function Cesta() {
                   <Dropdown.Item href="#/action-3">Vermelho</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-            </div>
-          </div>
-          <div className='col-3 resumo p-4 border-start ps-4'>
-            <h3 className='link-secondary pt-3'>Resumo do Pedido</h3>
-            <h5>{qtd + " produto(s)"}</h5>
-            <div className='d-flex align-items-end '>
-              <h5 className='pe-3'>Total:</h5>
-              <h3 onChange={(e) => { setTotal(e.target.value) }}>{(precoArr * qtd) + ",00"}</h3>
             </div>
             <Button onClick={() => {
               // CadastroVendaCarrinho()

@@ -27,7 +27,8 @@ function Post(props) {
                         </Card.Text>
                         <Button onClick={() =>  { 
                             navigateProduto("/produto") 
-                            localStorage.setItem("produto_id",`${props.id}`)
+                            localStorage.setItem("produto_id",`${props.produto_id
+                            }`)
                     }} variant="danger">Comprar</Button>
                     </Card.Body>
                 </Card>
