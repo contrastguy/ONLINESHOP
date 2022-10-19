@@ -30,20 +30,14 @@ function CadastrarProduto() {
 
   
   function eventHandleCadastrarProduto(){
-    ApiProdutoCadastro({loja_id,nome, genero_produto_id, secao_produto_id, categoria_id, estilo_id, cor_produto, qtd_estoque, tamanho_produto, valor, img_produto, descricao})
+    // ApiProdutoCadastro
+    console.log({loja_id,nome, genero_produto_id, secao_produto_id, categoria_id, estilo_id, cor_produto, qtd_estoque, tamanho_produto, valor, img_produto, descricao})
     .then((response)=>{
       console.log('llora')})
     .catch((error)=>{
     console.log(error)}) 
     
   }
-
-  
-
-  
-
-  
-  // parseInt(e.target.value)
 
   return (
     <>
@@ -72,27 +66,27 @@ function CadastrarProduto() {
               />
             </Form.Group>
             <div className=' d-flex'>
-            <Form.Select aria-label="Default select example" value={genero_produto_id} onChange={(e)=>{setGenero_produto_id(e.target.value)}} >
-              <option>Gênero</option>
+            <Form.Select aria-label="Default select example" value={genero_produto_id} onChange={(e)=>{setGenero_produto_id(e.target.value)}} required>
+              <option selected="true" disabled="disabled">Gênero</option>
               <option value="1">Masculino</option>
               <option value="2">Feminino</option>
             </Form.Select>
-            <Form.Select aria-label="Default select example" value={secao_produto_id} onChange={(e)=>{setSecao_produto_id(e.target.value)}}>
-              <option>Seção</option>
+            <Form.Select aria-label="Default select example" value={secao_produto_id} onChange={(e)=>{setSecao_produto_id(e.target.value)}} required>
+              <option selected="true" disabled="disabled">Seção</option>
               <option value="1">Adulto</option>
               <option value="2">Teen</option>
               <option value="3">Infantil</option>
             </Form.Select>
-            <Form.Select aria-label="Default select example" value={categoria_id} onChange={(e)=>{setCategoria_id(e.target.value)}}>
-              <option>Categoria</option>
+            <Form.Select aria-label="Default select example" value={categoria_id} onChange={(e)=>{setCategoria_id(e.target.value)}} required>
+              <option selected="true" disabled="disabled">Categoria</option>
               <option value="1" id='1'>Roupa</option>
               <option value="2" id='2'>Acessório</option>
               <option value="3" id='3'>Calçado</option>
               <option value="4" id='4'>Chapéu</option>
               <option value="5" id='5'>Óculos</option>
             </Form.Select>
-            <Form.Select aria-label="Default select example"value={estilo_id} onChange={(e)=>{setEstilo_id(e.target.value)}}>
-              <option>Estilo</option>
+            <Form.Select aria-label="Default select example"value={estilo_id} onChange={(e)=>{setEstilo_id(e.target.value)}} required>
+              <option selected="true" disabled="enabled">Estilo</option>
               <option value="1" id='1'>Casual</option>
               <option value="2" id='2'>Elegante</option>
               <option value="3" id='3'>Clássico</option>
