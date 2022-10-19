@@ -21,6 +21,7 @@ import PerfilLoja from './Components/PerfilLoja/PerfilLoja.jsx';
 import DadosPerfilLoja from './Components/PerfilLoja/DadosPerfilLoja/index'
 import MeusProdutosLoja from './Components/PerfilLoja/MeusProdutos/index.jsx';
 import HomePage from './Components/HomePage/HomePage.jsx';
+import ConfiguracoesLoja from './Components/PerfilLoja/Configuracoes/index.jsx';
 import './App.css';
 
 
@@ -53,7 +54,7 @@ const App = () => {
             <Route index element={<DadosPerfilLoja />}/>
             <Route path="meus-produtos" element={<MeusProdutosLoja />}/>
             <Route path="pagamentos" element={<PagamentoLoja />}/>
-            <Route path="configuracoes" element={<Configuracoes />}/>
+            <Route path="configuracoes" element={<ConfiguracoesLoja />}/>
             <Route path="ajuda" element={<Ajuda />}/>
           </Route> 
         </Routes>
