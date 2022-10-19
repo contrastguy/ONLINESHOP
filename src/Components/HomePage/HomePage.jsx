@@ -1,9 +1,10 @@
+// 
 import NavBar from "../NavBar/NavBar"
 import Footer from "../Footer/Footer"
-import { Container,Card,Row } from "react-bootstrap";
+import { Container, Card, Row } from "react-bootstrap";
 import Carrossel from "../Carousel/Carousel";
 import "./CSS/styles.css"
-import  React,{ useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Post from "../Posts/Post/Post";
 import { api } from "../Services/api";
 
@@ -11,60 +12,65 @@ console.log("TESTE")
 
 
 
-const HomePage = () => {
+const Homepage = () => {
 
-    
 
-    const [listaProdutos, setListaProdutos] = useState([])
-  
-    
-    const TodosProdutos = async () => {
-        try {
-            const url = "/produtos"
-            const res = await api.get(url)
-            setListaProdutos(res.data);
-            console.log(res.data);
-          } catch (err) {
-          console.log(err);
-        }
-      }
-      
-      useEffect(()=>{
-          TodosProdutos()
-           return 
-        },[])
 
-    return (
-        
-        <div>
-            <NavBar />
+  const [listaProdutos, setListaProdutos] = useState({ imagens_produto: [{ url_imagem: "" }] })
 
-            <div>
-                <Carrossel/>
-            </div>
-            
-            <Container className="d-flex flex-row justify-content-center">
-            <Container>
+
+  const TodosProdutos = async () => {
+    try {
+      const url = "/produtos"
+      const res = await api.get(url)
+      setListaProdutos(res.data);
+      console.log(res.data);
+
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+
+
+
+  useEffect(() => {
+    TodosProdutos()
+    return
+  }, [])
+
+  return (
+
+    <div>
+      <NavBar />
+
+      <div>
+        <Carrossel />
+      </div>
+
+      <Container className="d-flex flex-row justify-content-center">
+        <Container>
           <Row>
-            {listaProdutos.map((prod,index) => {
+            {listaProdutos.map((prod, index) => {
               return (
-                <Post 
-                key={index}
-                nome={prod.nome}
-                image={prod.imagens_produto[0].url_imagem}
-                descricao={prod.descricao}
+                <Post
+                  key={index}
+                  produto_id={prod.produto_id}
+                  nome={prod.nome}
+                  image={prod.imagens_produto[0].url_imagem}
+                  descricao={prod.descricao}
                 />
-              )  
+              )
             })}
           </Row>
         </Container>
-            </Container>
+      </Container>
 
 
-            <Footer />
-            
-        </div>
-    )
+      <Footer />
+
+    </div>
+  )
 }
 
-export default HomePage
+export default Homepage

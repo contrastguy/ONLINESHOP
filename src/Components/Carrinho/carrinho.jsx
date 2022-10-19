@@ -50,13 +50,27 @@ const Carrinho = () => {
       const url = '/venda/cadastro'
       const res = await api.post(url, {
         "usuario_id": usuario_id,
-        "produto_id": localStorage.getItem("produto_id"),
         "total": total
       })
-      console.log(res.data)
+      localStorage.setItem("venda_id",res.data.venda_id)
     } catch (error) {
       console.log(error)
     }
+    try {
+      const url = '/venda-produto/cadastro'
+      const res = await api.post(url,{
+        "venda_id":localStorage.getItem("venda_id"),
+        "produto_id": localStorage.getItem("produto_id"),
+        "qtd_produtos":5
+      })
+      console.log(res.data)
+      localStorage.removeItem("venda_id")
+      localStorage.removeItem("produto_id")
+    } catch (error) {
+      console.log(error)
+    }
+
+
   }
 
   

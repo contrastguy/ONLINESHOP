@@ -9,7 +9,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { useNavigate } from 'react-router-dom';
 import DolceGabbana from "../Mulher/Imagens/17528762_37436785_600.jpg"
 import { ProdutoId } from '../Services/apiLoja';
-
+import { api } from '../Services/api';
 
 import './CSS/styles.css'
 
