@@ -75,6 +75,23 @@ function ProdutoId(id){
     })
 }
 
+function ApiEnderecoCadastro(data){
+    return axios({
+        method:"post",
+        url: 'https://onlineshop-1.herokuapp.com/usuario-endereco/cadastro',
+        data:data,
+        headers: { "Access-Control-Allow-Origin": "*" }
+    })
+}
+
+function ApiContatoCadastro(data){
+    return axios({
+        method:"post",
+        url: 'https://onlineshop-1.herokuapp.com/usuario-contato/cadastro',
+        data:data,
+        headers: { "Access-Control-Allow-Origin": "*" }
+    })
+}
 
 
-export {ApiLojaCadastro, ApiLojaLogin, ApiProdutoCadastro, GeneroProduto, CategoriaProduto, EstiloProduto, SecaoProduto, ProdutoId}
+export {ApiLojaCadastro, ApiLojaLogin, ApiProdutoCadastro, GeneroProduto, CategoriaProduto, EstiloProduto, SecaoProduto, ProdutoId, ApiEnderecoCadastro, ApiContatoCadastro}

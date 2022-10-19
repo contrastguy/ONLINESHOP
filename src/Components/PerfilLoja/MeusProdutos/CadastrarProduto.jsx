@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 import { ApiProdutoCadastro } from '../../Services/apiLoja';
 
 
-
+const loja_id = localStorage.getItem("loja_id")
 
 
 function CadastrarProduto() {
@@ -32,10 +32,10 @@ function CadastrarProduto() {
   function eventHandleCadastrarProduto(){
     // ApiProdutoCadastro
     console.log({loja_id,nome, genero_produto_id, secao_produto_id, categoria_id, estilo_id, cor_produto, qtd_estoque, tamanho_produto, valor, img_produto, descricao})
-    .then((response)=>{
-      console.log('llora')})
-    .catch((error)=>{
-    console.log(error)}) 
+    // .then((response)=>{
+    //   alert('Produto cadastrado com sucesso')})
+    // .catch((error)=>{
+    // console.log(error)}) 
     
   }
 
@@ -51,13 +51,6 @@ function CadastrarProduto() {
         </Modal.Header>
         <Modal.Body>
           <Form>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1"value={loja_id} onChange={(e)=>{setLoja_id(parseInt(e.target.value))}} >
-              <Form.Label>Loja_id</Form.Label>
-              <Form.Control
-                type="text"
-                autoFocus
-              />
-            </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1"value={nome} onChange={(e)=>{setNome(e.target.value)}} >
               <Form.Label>Nome do produto</Form.Label>
               <Form.Control
@@ -66,7 +59,7 @@ function CadastrarProduto() {
               />
             </Form.Group>
             <div className=' d-flex'>
-            <Form.Select aria-label="Default select example" value={genero_produto_id} onChange={(e)=>{setGenero_produto_id(e.target.value)}} required>
+            <Form.Select aria-label="Default select example" value={genero_produto_id} onChange={(e)=>{setGenero_produto_id(e.target.value)}} required >
               <option selected="true" disabled="disabled">Gênero</option>
               <option value="1">Masculino</option>
               <option value="2">Feminino</option>
@@ -85,7 +78,7 @@ function CadastrarProduto() {
               <option value="4" id='4'>Chapéu</option>
               <option value="5" id='5'>Óculos</option>
             </Form.Select>
-            <Form.Select aria-label="Default select example"value={estilo_id} onChange={(e)=>{setEstilo_id(e.target.value)}} required>
+            <Form.Select aria-label="Default select example" value={estilo_id} onChange={(e)=>{parseInt(setEstilo_id(e.target.value))}} required>
               <option selected="true" disabled="enabled">Estilo</option>
               <option value="1" id='1'>Casual</option>
               <option value="2" id='2'>Elegante</option>
