@@ -9,7 +9,6 @@ export default function EnderecoUsuario() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [local, setLocal] = useState('')
   const [CEP, setCEP]= useState('')
   const [cidade, setCidade]= useState('')
   const [logradouro, setLogradouro]= useState('')
