@@ -1,5 +1,5 @@
 
-import { React } from 'react';
+import { React, useEffect } from 'react';
 import { Button, Container, Form, Nav, Navbar, NavDropdown, Offcanvas, Image } from "react-bootstrap"
 import { useNavigate } from 'react-router-dom'
 import { NavLink as Navigator } from 'react-router-dom'
@@ -27,12 +27,19 @@ const NavBar = () => {
   // }
 
   const navigateFem = useNavigate("/feminina");
-  const navigateMasc = useNavigate("/");
+  const navigateMasc = useNavigate("/masculina");
+  const navigateHome = useNavigate("/")
+  
+  function limparLocalStorage(){
+    localStorage.clear()
+  }
+  
+  
 
 
   return (
     <Navbar key="lg" bg="light" expand="lg" className="mb-3">
-      <Container fluid>
+      <Container fluid className="me-5 ms-3">
         <Navbar.Brand to="/" as={Navigator}><Image id="Logo-img" src={Logo} /></Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
         <Navbar.Offcanvas
@@ -46,36 +53,33 @@ const NavBar = () => {
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Nav.Link id="venda-conosco" to="/perfil/meus-produtos" as={Navigator}>Venda Conosco</Nav.Link>
-            <Nav id="Seção" className="justify-content-center mx-auto ">
-              <Button id="btn_masc" className="mx-4" variant="outline-danger" onClick={() => navigateMasc("/")} active>Masculino</Button>
+            <Nav id="Seção" className="justify-content-center mx-auto">
+              <Button id="btn_Masc" className="mx-4" variant="outline-danger" onClick={() => navigateMasc("/masculina")}  >Masculino</Button>
               <Button id="btn_fem" className="mx-4" variant="outline-danger" onClick={() => navigateFem("/feminina")}  >Feminino</Button>
             </Nav>
             <Nav className="justify-content-end mx-auto">
               <Nav.Link to="/carrinho" as={Navigator}>Carrinho</Nav.Link>
             </Nav>
+            <Nav.Link id="venda-conosco" to="/login-loja" className="link-secondary pe-4" as={Navigator}>Venda Conosco</Nav.Link>
             <NavDropdown
-              className="justify-content-end mx-auto"
+              className="justify-content-end me-5 link-secondary"
               title="Usuário"
               id={`offcanvasNavbarDropdown-expand-lg`}
             >
-              <NavDropdown.Item to="/perfil" as={Navigator}>Usuário</NavDropdown.Item>
+              <NavDropdown.Item to="/perfil" as={Navigator}>
+                Usuário
+              </NavDropdown.Item>
               <NavDropdown.Item to="/login" as={Navigator}>
                 Login
               </NavDropdown.Item>
               <NavDropdown.Item to="/cadastro" as={Navigator}>
                 Cadastre-se
               </NavDropdown.Item>
+              <NavDropdown.Item>
+                Logout 
+              </NavDropdown.Item>
             </NavDropdown>
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-danger">Search</Button>
-            </Form>
+            
           </Offcanvas.Body>
         </Navbar.Offcanvas>
       </Container>
