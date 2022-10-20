@@ -5,12 +5,15 @@ import { Nav } from "react-bootstrap";
 import { NavLink as Navigator } from "react-router-dom";
 import { api } from "../../Services/api";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+
+
 
 
 function TopicosPerfil() {
-    localStorage.setItem("usuario_id",1)
+    localStorage.getItem("usuario_id")
     const [dadosUsuario, setDadosUsuario] = useState([])
-
 
     const DadosUsuario = async () => {
         try {
@@ -23,8 +26,11 @@ function TopicosPerfil() {
         }
     }
 
+
+
 useEffect(()=>{
     DadosUsuario()
+    
 },[])
 
     return(

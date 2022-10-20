@@ -14,7 +14,7 @@ function ConfiguracoesLoja() {
                 <div className="d-flex container justify-content-around h-50">
                     <div className="">   
                     <EnderecoLoja />
-                       <Contatoloja />
+                    <Contatoloja />
                     </div>
                     
                 </div>

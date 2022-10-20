@@ -8,7 +8,6 @@ import NavBar from "../NavBar/NavBar";
 function PerfilLoja() {
     return(
         <div>
-            
             <NavBar />
                 <div className='d-flex'>
                     <TopicosPerfilLoja />
