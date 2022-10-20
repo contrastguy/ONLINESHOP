@@ -104,7 +104,7 @@ const Carrinho = () => {
           </h3>
 
           {card && (
-            <Card className="card-container">
+            <Card className="card-container text-white">
               <Button variant="danger" onClick={DeleteVenda}>Excluir</Button>
               <div className="img-carrinho">
                 <Card.Img class="img-card" variant="top" src={ProdutoId.imagens_produto[0].url_imagem} />
