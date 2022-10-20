@@ -2,7 +2,7 @@ import React, { useState, useEffect, Children } from "react";
 import Card from 'react-bootstrap/Card';
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import { Badge, Button, Image } from "react-bootstrap";
+import { Badge, Button, Image, ToastBody } from "react-bootstrap";
 import { api } from "../Services/api";
 
 import "./CSS/styles.css"
@@ -18,6 +18,7 @@ const Carrinho = () => {
   
 
   const precoArr = ProdutoId.valor
+  const totalCompra = precoArr * qtd
 
 
 
@@ -47,21 +48,28 @@ const Carrinho = () => {
 
   const CadastroVendaCarrinho = async () => {
     try {
+      
+      
       const url = '/venda/cadastro'
       const res = await api.post(url, {
-        "usuario_id": usuario_id,
-        "total": total
+        "usuario_id": localStorage.getItem("usuario_id"),
+        "total": totalCompra,
+        "data": "2022-10-19 23:59:40"
       })
       localStorage.setItem("venda_id",res.data.venda_id)
+      console.log(res.data)
     } catch (error) {
       console.log(error)
     }
     try {
+      
       const url = '/venda-produto/cadastro'
       const res = await api.post(url,{
         "venda_id":localStorage.getItem("venda_id"),
         "produto_id": localStorage.getItem("produto_id"),
-        "qtd_produtos":5
+        "qtd_produtos": qtd,
+        "total": totalCompra,
+        
       })
       console.log(res.data)
       localStorage.removeItem("venda_id")
@@ -96,7 +104,7 @@ const Carrinho = () => {
           </h3>
 
           {card && (
-            <Card className="card-container">
+            <Card className="card-container text-white">
               <Button variant="danger" onClick={DeleteVenda}>Excluir</Button>
               <div className="img-carrinho">
                 <Card.Img class="img-card" variant="top" src={ProdutoId.imagens_produto[0].url_imagem} />

@@ -12,6 +12,16 @@ function ApiLojaLogin(LoginData) {
         headers: { "Access-Control-Allow-Origin": "*" }
     })
 }
+function ApiLogin(LoginData) {
+
+    return axios({
+        method: "post",
+        url:'https://onlineshop-1.herokuapp.com/usuario/login',
+        data: LoginData,
+        headers: { "Access-Control-Allow-Origin": "*" }
+    })
+}
+
 
 function ApiLojaCadastro(data){
     return axios({
@@ -83,6 +93,14 @@ function ApiEnderecoCadastro(data){
         headers: { "Access-Control-Allow-Origin": "*" }
     })
 }
+function ApiEnderecoLojaCadastro(data){
+    return axios({
+        method:"post",
+        url: 'https://onlineshop-1.herokuapp.com/loja-endereco/cadastro',
+        data:data,
+        headers: { "Access-Control-Allow-Origin": "*" }
+    })
+}
 
 function ApiContatoCadastro(data){
     return axios({
@@ -93,5 +111,13 @@ function ApiContatoCadastro(data){
     })
 }
 
+function ApiContatoLojaCadastro(data){
+    return axios({
+        method:"post",
+        url: 'https://onlineshop-1.herokuapp.com/loja-contato/cadastro',
+        data:data,
+        headers: { "Access-Control-Allow-Origin": "*" }
+    })
+}
 
-export {ApiLojaCadastro, ApiLojaLogin, ApiProdutoCadastro, GeneroProduto, CategoriaProduto, EstiloProduto, SecaoProduto, ProdutoId, ApiEnderecoCadastro, ApiContatoCadastro}
+export {ApiLojaCadastro, ApiLojaLogin, ApiProdutoCadastro, GeneroProduto, CategoriaProduto, EstiloProduto, SecaoProduto, ProdutoId, ApiEnderecoCadastro, ApiContatoCadastro,ApiEnderecoLojaCadastro, ApiContatoLojaCadastro, ApiLogin}

@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 import { ApiProdutoCadastro } from '../../Services/apiLoja';
 
 
-const loja_id = localStorage.getItem("loja_id")
+
 
 
 function CadastrarProduto() {
@@ -14,7 +14,6 @@ function CadastrarProduto() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
-  const [loja_id, setLoja_id] = useState('')
   const [nome, setNome] = useState('')
   const [genero_produto_id, setGenero_produto_id]= useState('')
   const [secao_produto_id, setSecao_produto_id]= useState('')
@@ -27,15 +26,16 @@ function CadastrarProduto() {
   const [img_produto, setImg_produto]= useState('')
   const [descricao, setDescricao]= useState('')
   
+  const loja_id = localStorage.getItem("loja_id")
 
   
   function eventHandleCadastrarProduto(){
-    // ApiProdutoCadastro
-    console.log({loja_id,nome, genero_produto_id, secao_produto_id, categoria_id, estilo_id, cor_produto, qtd_estoque, tamanho_produto, valor, img_produto, descricao})
-    // .then((response)=>{
-    //   alert('Produto cadastrado com sucesso')})
-    // .catch((error)=>{
-    // console.log(error)}) 
+    ApiProdutoCadastro({loja_id,nome, genero_produto_id, secao_produto_id, categoria_id, estilo_id, cor_produto, qtd_estoque, tamanho_produto, valor, img_produto, descricao})
+    .then((response)=>{
+      alert('Produto cadastrado com sucesso')})
+    .catch((error)=>{
+    console.log(error)}) 
+    
     
   }
 
@@ -60,18 +60,18 @@ function CadastrarProduto() {
             </Form.Group>
             <div className=' d-flex'>
             <Form.Select aria-label="Default select example" value={genero_produto_id} onChange={(e)=>{setGenero_produto_id(e.target.value)}} required >
-              <option selected="true" disabled="disabled">Gênero</option>
+              <option>Gênero</option>
               <option value="1">Masculino</option>
               <option value="2">Feminino</option>
             </Form.Select>
             <Form.Select aria-label="Default select example" value={secao_produto_id} onChange={(e)=>{setSecao_produto_id(e.target.value)}} required>
-              <option selected="true" disabled="disabled">Seção</option>
+              <option>Seção</option>
               <option value="1">Adulto</option>
               <option value="2">Teen</option>
               <option value="3">Infantil</option>
             </Form.Select>
             <Form.Select aria-label="Default select example" value={categoria_id} onChange={(e)=>{setCategoria_id(e.target.value)}} required>
-              <option selected="true" disabled="disabled">Categoria</option>
+              <option>Categoria</option>
               <option value="1" id='1'>Roupa</option>
               <option value="2" id='2'>Acessório</option>
               <option value="3" id='3'>Calçado</option>
@@ -79,7 +79,7 @@ function CadastrarProduto() {
               <option value="5" id='5'>Óculos</option>
             </Form.Select>
             <Form.Select aria-label="Default select example" value={estilo_id} onChange={(e)=>{parseInt(setEstilo_id(e.target.value))}} required>
-              <option selected="true" disabled="enabled">Estilo</option>
+              <option>Estilo</option>
               <option value="1" id='1'>Casual</option>
               <option value="2" id='2'>Elegante</option>
               <option value="3" id='3'>Clássico</option>

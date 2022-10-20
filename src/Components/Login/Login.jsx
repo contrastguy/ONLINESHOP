@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Componente from './ProtectedComponent.jsx';
 import { api } from '../Services/api.jsx';
 import './CSS/styles.css'
+// import { ApiLogin } from '../Services/apiLoja.jsx';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -19,10 +21,11 @@ function Login() {
     const handleLogin = async () => {
         // ApiLogin({ email, senha }).then(
         //     (response) => {
-        //         alert("Login funcionou")
+
         //         const dados = response.data
         //         if (dados) {
-        //             localStorage.setItem('Token', JSON.stringify(dados))
+        //             localStorage.setItem('Token', JSON.stringify(dados.token))
+        //             localStorage.setItem('Token', JSON.stringify(dados.usuario_id))
         //             window.location.reload()
         //         }
         //     }
@@ -41,7 +44,10 @@ function Login() {
                 "email": email,
                 "senha":senha
             })
-            console.log(res.data)
+            const login = [... res.data]
+            localStorage.setItem("token", login[0])
+            localStorage.setItem("usuario_id", login[1])
+            
         } catch (error) {
             console.log(error)
         }
@@ -58,7 +64,7 @@ function Login() {
     
 
 
-
+    const navigatePerfil = useNavigate("/perfil") 
 
 
     return (
@@ -79,7 +85,7 @@ function Login() {
                                     setEmail(e.target.value)
                                     if (temErro != false) setTemErro(false)
                                 }} />
-                                <label for="password" className="font mb-2">Password:</label>
+                                <label for="password" className="font mb-2">Senha:</label>
                                 <input type="password" name="password" id="authPassword" className="input-quest focus-0 mb-2 text-black" value={senha} onChange={e => setSenha(e.target.value)} />
                                 <div className="ocult" id="erroLogin">
                                     <div className="d-flex justify-content-center align-content-center">
@@ -101,7 +107,15 @@ function Login() {
                             </form>
                         </div>
                         <div className="d-flex col-12 justify-content-center mt-4">
-                            <button className="font btn btn-danger col-6 register" onClick={handleLogin} id="login">Continuar</button>
+                            <button
+                            id="login" 
+                            className="font btn btn-danger col-6 register" 
+                            onClick={ 
+                                ()=>{navigatePerfil('/perfil')
+                                    handleLogin()
+                                }}>
+                                    Continuar
+                            </button>
                         </div>
                         <p className="link-secondary text-center mt-2 mb-4">
                             Não tem uma conta?

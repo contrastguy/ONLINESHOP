@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ApiLojaLogin } from "../Services/apiLoja.jsx"
 import './CSS/styles.css'
 
@@ -18,10 +18,10 @@ function LoginLoja() {
     function handleLoginLoja() {
         ApiLojaLogin({ email, senha }).then(
             (response) => {
-                alert("Login funcionou")
-                const dados = response.data
+                const dados = [...response.data]
                 if (dados) {
-                    localStorage.setItem('Token', JSON.stringify(dados))
+                    localStorage.setItem("token", dados[0])
+                    localStorage.setItem('loja_id', dados[1])
                     window.location.reload()
                 }
             }
@@ -35,7 +35,7 @@ function LoginLoja() {
             )
     }
 
-
+    const navigatePerfilLoja = useNavigate("/perfil-loja") 
     return (
         <>
             <div className="vh-100 position-relative">
@@ -75,7 +75,10 @@ function LoginLoja() {
                             </form>
                         </div>
                         <div className="d-flex col-12 justify-content-center mt-4">
-                            <button className="font btn btn-danger col-6 register" onClick={handleLoginLoja} id="login">Continuar</button>
+                            <button className="font btn btn-danger col-6 register" onClick={()=>{
+                                handleLoginLoja()
+                                navigatePerfilLoja('/perfil-loja')}} 
+                                id="login">Continuar</button>
                         </div>
                         <p className="link-secondary text-center mt-2 mb-4">
                             Não tem uma conta?
