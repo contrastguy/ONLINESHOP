@@ -8,7 +8,6 @@ import React, { useEffect, useState } from "react";
 import Post from "../Posts/Post/Post";
 import { api } from "../Services/api";
 
-console.log("TESTE")
 
 
 

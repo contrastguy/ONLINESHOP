@@ -25,9 +25,6 @@ const Carrossel = () => {
                             className="d-block w-75 mx-auto"
                             src={Pradaimg}
                             alt="First slide" />
-                        <Carousel.Caption>
-                            <p id="p-carrosel">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
             </div>
