@@ -31,7 +31,9 @@ const NavBar = () => {
   const navigateHome = useNavigate("/")
   
   function limparLocalStorage(){
-    localStorage.clear()
+    localStorage.removeItem("token")
+    localStorage.removeItem("usuario_id")
+    navigateHome("/")
   }
   
   
@@ -76,7 +78,9 @@ const NavBar = () => {
                 Cadastre-se
               </NavDropdown.Item>
               <NavDropdown.Item>
-                Logout 
+                <Button className='text-decoration-none text-dark' variant='link' onClick={limparLocalStorage}>
+                      Logout
+                </Button>
               </NavDropdown.Item>
             </NavDropdown>
             

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Componente from './ProtectedComponent.jsx';
 import { api } from '../Services/api.jsx';
@@ -47,7 +47,7 @@ function Login() {
             const login = [... res.data]
             localStorage.setItem("token", login[0])
             localStorage.setItem("usuario_id", login[1])
-            
+            console.log("alo")
         } catch (error) {
             console.log(error)
         }
