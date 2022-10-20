@@ -1,7 +1,7 @@
 import React,{ useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import { api } from '../Services/api';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './CSS/styles.css'
 
 
@@ -42,7 +42,9 @@ const eventHandleCadastro = async () => {
             "rua":rua,
             "numero":numero
         })
-        console.log(res.data)
+        const login = [... res.data]
+        localStorage.setItem("token", login[0])
+        localStorage.setItem("usuario_id", login[1])
     } catch (error) {
         console.log(error)
     }
@@ -56,7 +58,7 @@ function verifyTerms() {
         }
 
 }
-
+    const navigatePerfil = useNavigate("/perfil") 
 
   return (
     <div>
@@ -158,6 +160,7 @@ function verifyTerms() {
                         () => { 
                             eventHandleCadastro()
                             verifyTerms()
+                            navigatePerfil('/perfil')
                         }
 
                     }>Continuar</button>

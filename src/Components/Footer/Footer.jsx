@@ -58,17 +58,17 @@ const Footer = () => {
             <div className='row d-flex justify-content-center'>
               <div className='col-auto'>
                 <p className='pt-2'>
-                  <strong>Sign up for our newsletter</strong>
+                  <strong>Fique por dentro das novidades</strong>
                 </p>
               </div>
 
               <MDBCol md='5' start='12'>
-                <MDBInput contrast type='email' label='Email address' className='mb-4' />
+                <MDBInput contrast type='email' placeholder='E-mail ' className='mb-4' />
               </MDBCol>
 
               <div className='col-auto'>
                 <MDBBtn outline color='light' type='submit' className='mb-4'>
-                  Subscribe
+                  inscreva-se
                 </MDBBtn>
               </div>
             </div>
@@ -76,11 +76,7 @@ const Footer = () => {
         </section>
 
         <section className='mb-4'>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum repellat quaerat
-            voluptatibus placeat nam, commodi optio pariatur est quia magnam eum harum corrupti dicta, aliquam
-            sequi voluptate quas.
-          </p>
+          
         </section>
 
         <section id="Section-footer" className='d-flex justify-content-center '>
@@ -94,7 +90,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    contato@contato.com
+                    onlineshop@contato.com
                   </a>
                 </li>
               </ul>

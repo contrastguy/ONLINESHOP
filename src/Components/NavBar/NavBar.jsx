@@ -1,5 +1,5 @@
 
-import { React } from 'react';
+import { React, useEffect } from 'react';
 import { Button, Container, Form, Nav, Navbar, NavDropdown, Offcanvas, Image } from "react-bootstrap"
 import { useNavigate } from 'react-router-dom'
 import { NavLink as Navigator } from 'react-router-dom'
@@ -28,6 +28,13 @@ const NavBar = () => {
 
   const navigateFem = useNavigate("/feminina");
   const navigateMasc = useNavigate("/masculina");
+  const navigateHome = useNavigate("/")
+  
+  function limparLocalStorage(){
+    localStorage.clear()
+  }
+  
+  
 
 
   return (
@@ -68,8 +75,8 @@ const NavBar = () => {
               <NavDropdown.Item to="/cadastro" as={Navigator}>
                 Cadastre-se
               </NavDropdown.Item>
-              <NavDropdown.Item to="/" as={Navigator}>
-              Logout
+              <NavDropdown.Item>
+                Logout 
               </NavDropdown.Item>
             </NavDropdown>
             
