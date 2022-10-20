@@ -31,7 +31,7 @@ function TopicosPerfil() {
 useEffect(()=>{
     DadosUsuario()
     
-},[])
+})
 
     return(
         <div className="col-3 bg-light text-center pt-4 pb-4 mb-3 ps-2 pe-2 shadow-lg">

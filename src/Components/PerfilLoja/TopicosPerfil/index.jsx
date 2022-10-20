@@ -8,7 +8,6 @@ import { api } from "../../Services/api";
 
 
 function TopicosPerfilLoja() {
-    localStorage.setItem("loja_id",2)
     const [dadosLoja, setDadosLoja] = useState([])
 
 
@@ -30,7 +29,7 @@ useEffect(()=>{
         <div className="col-3 bg-light text-center pt-4 pb-4 mb-3 ps-2 pe-2 shadow-lg">
             <div className="pb-3">
                 <img src={dadosLoja.url_imagem} alt="" className="fotoPerfil mb-3"/>
-                <Nav.Link to="/perfil" as={Navigator}><h3 className="link-secondary cursor ">{dadosLoja.nome_fantasia}</h3></Nav.Link>
+                <Nav.Link to="/perfil-loja" as={Navigator}><h3 className="link-secondary cursor ">{dadosLoja.nome_fantasia}</h3></Nav.Link>
             </div>
             <Nav.Link to="/perfil-loja/meus-produtos" as={Navigator}>
                 <button className="btn btn-danger col-12 shadow-lg radius-0">Meus Produtos</button>

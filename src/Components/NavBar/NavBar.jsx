@@ -28,15 +28,13 @@ const NavBar = () => {
 
   const navigateFem = useNavigate("/feminina");
   const navigateMasc = useNavigate("/masculina");
+  const navigateHome = useNavigate("/")
   
-  const limparLocalStorage = () =>{
-    // localStorage.clear()
-    alert('hadgba')
+  function limparLocalStorage(){
+    localStorage.clear()
   }
   
-  useEffect (()=>{
-    limparLocalStorage()
-  },[])
+  
 
 
   return (
@@ -77,10 +75,8 @@ const NavBar = () => {
               <NavDropdown.Item to="/cadastro" as={Navigator}>
                 Cadastre-se
               </NavDropdown.Item>
-              <NavDropdown.Item onCliCk={(e)=>{
-                e.limparLocalStorage()
-                }}>
-              Logout
+              <NavDropdown.Item>
+                Logout 
               </NavDropdown.Item>
             </NavDropdown>
             

@@ -1,5 +1,5 @@
 import React,{ useState } from 'react';
-import { NavLink as Navigator, Link } from 'react-router-dom'
+import { NavLink as Navigator, Link, useNavigate } from 'react-router-dom'
 import {ApiLojaCadastro}   from '../Services/apiLoja';
 import './CSS/styles.css'
 
@@ -14,20 +14,30 @@ const [check,setCheck] = useState(false)
 
  
 
-function eventHandleCadastroLoja(){ 
-    ApiLojaCadastro({
-        nome_fantasia,email,senha,CNPJ
-    }).then(
-      (response) => { alert("Funcionou")}
-    ).catch((error)=>{console.log(error)})
-}
+    function eventHandleCadastroLoja(){ 
+        ApiLojaCadastro({
+            nome_fantasia,email,senha,CNPJ
+        }).then(
+            (response) => {
+                const dados = [...response.data]
+                if (dados) {
+                    localStorage.setItem("token", dados[0])
+                    localStorage.setItem('loja_id', dados[1])
+                    window.location.reload()
+                }
+            }
+            
+        ).catch((error)=>{console.log(error)})
+    }
 
-function verifyTerms() {
-        if(!check){
-            return alert("Você esqueceu de confirmar os termos e condições")
-        }
 
-}
+    function verifyTerms() {
+            if(!check){
+                return alert("Você esqueceu de confirmar os termos e condições")
+            }
+
+    }
+    const navigatePerfilLoja = useNavigate("/perfil-loja")
 
   return (
     <div>
@@ -87,6 +97,7 @@ function verifyTerms() {
                 <div className="d-flex justify-content-center col-12 mt-5">
                     <button className="btn btn-danger col-6 register" id="cadastro" onClick={
                         () => { 
+                            navigatePerfilLoja('/perfil-loja')
                             eventHandleCadastroLoja()
                             verifyTerms()
                         }

@@ -10,14 +10,14 @@ export default function EnderecoUsuario() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [local, setLocal] = useState('')
-  const [cep, setCep]= useState('')
+  const [CEP, setCEP]= useState('')
   const [cidade, setCidade]= useState('')
   const [logradouro, setLogradouro]= useState('')
   const [rua, setRua]= useState('')
   const [numero, setNumero]= useState('')
 
   function CadastrarEndereco(){
-    ApiEnderecoLojaCadastro({ cep, cidade, logradouro, rua, numero})
+    ApiEnderecoLojaCadastro({ CEP, cidade, logradouro, rua, numero})
     .then((res)=>{console.log(res)})
     .catch((error)=>{
       console.log(error)
@@ -35,7 +35,7 @@ export default function EnderecoUsuario() {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" value={cep} onChange={(e)=>{setCep(e.target.value)}}>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" value={CEP} onChange={(e)=>{setCEP(e.target.value)}}>
               <Form.Label>CEP</Form.Label>
               <Form.Control
                 type="text"
