@@ -17,7 +17,7 @@ export default function EnderecoUsuario() {
   const [numero, setNumero]= useState('')
 
   function CadastrarEndereco(){
-    ApiEnderecoLojaCadastro({ CEP, cidade, logradouro, rua, numero})
+    ApiEnderecoLojaCadastro({CEP, cidade, logradouro, rua, numero})
     .then((res)=>{console.log(res)})
     .catch((error)=>{
       console.log(error)
