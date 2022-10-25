@@ -13,7 +13,7 @@ const [CNPJ,setCNPJ] = useState()
 const [check,setCheck] = useState(false)
 
  
-
+// Cria o cadastro da loja , seta o token da senha e o id da loja no LocalStorage
     function eventHandleCadastroLoja(){ 
         ApiLojaCadastro({
             nome_fantasia,email,senha,CNPJ
@@ -30,7 +30,7 @@ const [check,setCheck] = useState(false)
         ).catch((error)=>{console.log(error)})
     }
 
-
+// Te obriga a clicar no check de verify Terms
     function verifyTerms() {
             if(!check){
                 return alert("Você esqueceu de confirmar os termos e condições")

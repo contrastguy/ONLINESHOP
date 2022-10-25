@@ -39,7 +39,6 @@ const Mulher = () => {
     
         useEffect(()=>{
           TodosProdutos()
-           return 
         },[])
 
     return (

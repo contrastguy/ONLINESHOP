@@ -6,13 +6,13 @@ import Col from 'react-bootstrap/esm/Col';
 
 import { Button,Card } from "react-bootstrap";
 
-// import "./CSS/styles.css"
+
 import { useNavigate } from "react-router-dom";
 
 
-// import './styles.css'
 
 
+// Função que renderiza um card , e que os dados desse card são do props
 function Post(props) {
     const navigateProduto = useNavigate("/produto") 
     return (

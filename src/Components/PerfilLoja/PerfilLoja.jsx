@@ -9,6 +9,8 @@ function PerfilLoja() {
     return(
         <div>
             <NavBar />
+            {/* Coloca o componente que posssui as rotas */}
+            {/* Renderiza o filho das rotas da Topicos Perfil Loja */}
                 <div className='d-flex'>
                     <TopicosPerfilLoja />
                     <Outlet />

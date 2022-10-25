@@ -3,6 +3,8 @@ import { Container,Row } from "react-bootstrap";
 import Post from "../Posts/Post/Post";
 import { api } from "../Services/api";
 
+// renderiza os produtos, coloca no useEffect pra não abrir a página antes de tudo renderizar
+// Mapeia a Array que possui todos os dados do produto e joga em um Container
 function Posts() {
 
     const [listaProdutos, setListaProdutos] = useState([])
@@ -25,7 +27,6 @@ function Posts() {
     
         useEffect(()=>{
           TodosProdutos()
-           return 
         },[])
     return (
       <>

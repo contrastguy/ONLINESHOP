@@ -39,18 +39,9 @@ export default function Cesta() {
 
 
 
-  // const Produtos = async () => {
-  //   try {
-  //     const url = "/produtos"
-  //     const res = await api.get(url)
-  //     setListaProdutos(res.data)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
-
   
+
+ 
   const ProdutoEspecífico = async () => {
     try {
       const url = `/produto/${localStorage.getItem("produto_id")}`
@@ -65,7 +56,7 @@ export default function Cesta() {
  
 
   
-
+// Verifica se o tamannho existe no banco de Dados
   function verificarTamanho(value) {
 
     if (tamanhoArr === value) {
@@ -77,41 +68,9 @@ export default function Cesta() {
   }
 
 
-
-
-
-
-
   useEffect(
     () => {
-      // alert("To do : chamar APi rota que pega lista de produtos e add response no state listaProdutos")
-      //   ProdutosMulher().then(
-      //     (response) => {
-      //       console.log(response.data)
-      //       const dados = response.data
-      //       setListaProdutos(dados)
-
-      //     }
-      //   ).catch((error) => { console.log(error) })
-
-
-      // function  CadastroVendaCarrinho(){
-      //   CadastroVenda({usuario_id,total}).then(
-      //     (response) => {
-      //       const  dados = response.data
-      //       console.log(dados)
-      //       alert("Funcionou")}
-      //   ).catch(
-      //     (error)=>{console.log(error)}
-      //   )
-
-
-
-
-
-      // Produtos()
       ProdutoEspecífico()
-
     }, [])
 
  
@@ -195,7 +154,6 @@ export default function Cesta() {
               </Dropdown>
             </div>
             <Button onClick={() => {
-              // CadastroVendaCarrinho()
               navigateCarrinho("/carrinho")
             }} className='comprar btn btn-success'>Adicionar ao Carrinho</Button>
           </div>

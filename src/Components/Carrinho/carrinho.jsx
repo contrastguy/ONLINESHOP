@@ -9,19 +9,20 @@ import "./CSS/styles.css"
 
 
 const Carrinho = () => {
-  const [ProdutoId, setProdutoId] = useState({imagens_produto:[{url_imagem:""}]})
+  //useState não podia vir vazio. Página carregava antes e a função que add os dados, carregava depois
+  const [ProdutoId, setProdutoId] = useState({imagens_produto:[{url_imagem:""}]}) 
   const [qtd, setQtd] = useState(1)
   const [card, setCard] = useState(true)
   const [total, setTotal] = useState(Number)
   const [usuario_id, setUsuario_id] = useState(1)
-  const nomeArr = ProdutoId.nome
-  
-
+  const nomeArr = ProdutoId.nome 
   const precoArr = ProdutoId.valor
   const totalCompra = precoArr * qtd
 
 
-
+// Deletava a venda pelo id do produto que estava setado no localStorage
+// Muda o estado do Card quando apertar no botão excluir
+// remove o id do produto no localStorage
   const DeleteVenda = async () => {
     try {
       const url = `/venda/${localStorage.getItem("produto_id")}`
@@ -34,7 +35,8 @@ const Carrinho = () => {
     }
   }
 
-  // ProdutoId.imagens_produto[0].url_imagem
+  // Pego o id do produto que esta no localStorage
+  // Coloco os dados do produto no state 
   const ProdutoEspecífico = async () => {
     try {
       const url = `/produto/${localStorage.getItem("produto_id")}`
@@ -45,7 +47,9 @@ const Carrinho = () => {
     }
   }
 
-
+// Cria um uma venda na tabela vendas, com dados vindo do post
+// seta uma venda_id no localStorage 
+// remove do localStorage o venda_id e produto_id
   const CadastroVendaCarrinho = async () => {
     try {
       
@@ -84,11 +88,10 @@ const Carrinho = () => {
   
 
 
-
+// A página só carrega se o produto for renderizado/alterado
   useEffect(
     () => {
      ProdutoEspecífico()
-      // console.log(ProdutoId);
     }, []
   )
 
@@ -102,7 +105,7 @@ const Carrinho = () => {
           <h3>
             Carrinho de compras <Badge bg="secondary">New</Badge>
           </h3>
-
+          {/* gambiarra que exclui o componente Card */}
           {card && (
             <Card className="card-container text-dark">
               <Button variant="danger" onClick={DeleteVenda}>Excluir</Button>

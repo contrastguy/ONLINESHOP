@@ -20,13 +20,8 @@ const [numero,setNumero] = useState()
 const [check,setCheck] = useState(false)
 
  
-
+//Cria o cadastro , coloca o token e id do usuario no localStorage
 const eventHandleCadastro = async () => { 
-    // ApiCadastro({
-    //     nome,sobrenome,email,celular,senha,confSenha,cidade,logradouro,rua,numero
-    // }).then(
-    //   (response) => { alert("Funcionou")}
-    // ).catch((error)=>{console.log(error)})
     
     try {
         const url = "/usuario/cadastro"
@@ -52,6 +47,7 @@ const eventHandleCadastro = async () => {
 
 }
 
+//Te obriga a clicar no check do verify Terms
 function verifyTerms() {
         if(!check){
             return alert("Você esqueceu de confirmar os termos e condições")

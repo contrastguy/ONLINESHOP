@@ -17,7 +17,8 @@ const Homem = () => {
 
     const [listaProdutos, setListaProdutos] = useState([])
   
-    
+    // Pega todos os produtos que esta em um filtro feito no back end 
+    // Seta os dados e joga em uma Array 
     const TodosProdutos = async () => {
         try {
           const url = "/produto-filtro/1"
@@ -32,10 +33,9 @@ const Homem = () => {
       
     
     
-    
+      // A página só é atualizada se Todos os Produtos carregam/atualizam 
         useEffect(()=>{
-          TodosProdutos()
-           return 
+          TodosProdutos() 
         },[])
 
     return (

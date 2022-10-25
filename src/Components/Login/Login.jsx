@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Componente from './ProtectedComponent.jsx';
 import { api } from '../Services/api.jsx';
 import './CSS/styles.css'
-// import { ApiLogin } from '../Services/apiLoja.jsx';
 import { useNavigate } from "react-router-dom";
 
 
@@ -19,25 +18,8 @@ function Login() {
 
 
     const handleLogin = async () => {
-        // ApiLogin({ email, senha }).then(
-        //     (response) => {
-
-        //         const dados = response.data
-        //         if (dados) {
-        //             localStorage.setItem('Token', JSON.stringify(dados.token))
-        //             localStorage.setItem('Token', JSON.stringify(dados.usuario_id))
-        //             window.location.reload()
-        //         }
-        //     }
-        // ).catch(
-        //     (error) => {
-        //         console.log(error)
-        //         if (error.response.status == 401) {
-        //             setTemErro(true)
-        //         }
-        //     }
-        // )
-
+    // Aplica o login , usando o email e senha como dados do Post
+    // Seta o token da senha e id do usuario no LocalStorage
         try {
             const url = "/login"
             const res =  await api.post(url,{
@@ -47,7 +29,6 @@ function Login() {
             const login = [... res.data]
             localStorage.setItem("token", login[0])
             localStorage.setItem("usuario_id", login[1])
-            console.log("alo")
         } catch (error) {
             console.log(error)
         }
