@@ -4,47 +4,47 @@ import Facebook from "./Imagens/facebook.png"
 import Instagram from "./Imagens/instagram.png"
 import "./CSS/styles.css"
 import {
-    MDBFooter,
-    MDBContainer,
-    MDBIcon,
-    MDBInput,
-    MDBCol,
-    MDBRow,
-    MDBBtn
-  } from 'mdb-react-ui-kit';
+  MDBFooter,
+  MDBContainer,
+  MDBIcon,
+  MDBInput,
+  MDBCol,
+  MDBRow,
+  MDBBtn
+} from 'mdb-react-ui-kit';
 
 
 const Footer = () => {
-    return (
-        // <Container id="footer-container" className=" d-flex flex-row bg-dark max-auto">
-        //     <Container className="justify-content-start">
-        //         <h3>NOS SIGA NAS REDES</h3>
-        //         <a href="#"><Image src={Facebook} alt="Logo do Facebook"/></a>
-        //         <a href="#"><Image src="./IMAGENS/instagram.png" alt="Logo do Instagram"/></a>
-        //     </Container>
+  return (
+    // <Container id="footer-container" className=" d-flex flex-row bg-dark max-auto">
+    //     <Container className="justify-content-start">
+    //         <h3>NOS SIGA NAS REDES</h3>
+    //         <a href="#"><Image src={Facebook} alt="Logo do Facebook"/></a>
+    //         <a href="#"><Image src="./IMAGENS/instagram.png" alt="Logo do Instagram"/></a>
+    //     </Container>
 
-        //     <Container className="justify-content-center">
-        //         <h3>RECEBA OFERTAS</h3>
-        //         <div>
-        //             <input type="email" id="email" name="email" placeholder="Coloque seu e-mail aqui!"/>
-        //                 <input type="submit" value="SE INSCREVA" id="submit-email"/>
-        //                 </div>
-        //                 <p>2022 by TERA</p>
-        //     </Container>
-            
-        //         <Container className="justify-content-end">
-        //             <h3>FALE CONOSCO</h3>
-        //             <p>(XX) X-XXXX-XXXX</p>
-        //             <p>contato@contato.com</p>
+    //     <Container className="justify-content-center">
+    //         <h3>RECEBA OFERTAS</h3>
+    //         <div>
+    //             <input type="email" id="email" name="email" placeholder="Coloque seu e-mail aqui!"/>
+    //                 <input type="submit" value="SE INSCREVA" id="submit-email"/>
+    //                 </div>
+    //                 <p>2022 by TERA</p>
+    //     </Container>
 
-        //         </Container>
-        // </Container>
+    //         <Container className="justify-content-end">
+    //             <h3>FALE CONOSCO</h3>
+    //             <p>(XX) X-XXXX-XXXX</p>
+    //             <p>contato@contato.com</p>
 
-        <MDBFooter className='text-center' color='white' bgColor='dark'>
+    //         </Container>
+    // </Container>
+
+    <MDBFooter className='text-center' color='white' bgColor='dark'>
       <MDBContainer className='p-4'>
         <section className='mb-4'>
           <a className='btn btn-outline-light btn-floating mx-4 ' href='#!' role='button'>
-            <img id="Facebook-img" src={Facebook} alt="Facebook"/>
+            <img id="Facebook-img" src={Facebook} alt="Facebook" />
           </a>
 
           <a className='btn btn-outline-light btn-floating mx-4 ' href='#!' role='button'>
@@ -76,12 +76,12 @@ const Footer = () => {
         </section>
 
         <section className='mb-4'>
-          
+
         </section>
 
         <section id="Section-footer" className='d-flex justify-content-center '>
           <MDBRow>
-            <MDBCol  className='mb-4 mb-md-0'>
+            <MDBCol className='mb-4 mb-md-0'>
               <h5 className='text-uppercase'>Fale com a Gente</h5>
 
               <ul className='list-unstyled mb-0'>
@@ -98,6 +98,9 @@ const Footer = () => {
           </MDBRow>
         </section>
       </MDBContainer>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4281866239208978"
+        crossorigin="anonymous"></script>
+
 
       <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
         © 2022 Copyright
@@ -106,7 +109,7 @@ const Footer = () => {
 
 
 
-    )
+  )
 
 }
 
