@@ -68,7 +68,7 @@ const Footer = () => {
 
               <div className='col-auto'>
                 <MDBBtn outline color='light' type='submit' className='mb-4'>
-                  inscreva-se
+                  Inscreva-se
                 </MDBBtn>
               </div>
             </div>
@@ -86,7 +86,7 @@ const Footer = () => {
 
               <ul className='list-unstyled mb-0'>
                 <li>
-                  (XX) XXXX-XXXX
+                  (99) 9999-9999
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
@@ -103,7 +103,7 @@ const Footer = () => {
 
 
       <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-        © 2022 Copyright
+        © 2022 ONLINESHOP
       </div>
     </MDBFooter>
 
