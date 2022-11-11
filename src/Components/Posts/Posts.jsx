@@ -25,7 +25,6 @@ function Posts() {
     
         useEffect(()=>{
           TodosProdutos()
-           return 
         },[])
     return (
       <>

@@ -83,7 +83,7 @@ const [check,setCheck] = useState(false)
                             (e) => {setCNPJ(e.target.value)
                                 if(confSenha !== senha){alert("As senhas não se conferem")}}
                         }/>
-                        <div className="pt-5 d-flex justify-content-between">
+                        <div className="pt-5 d-flex justify-content-start">
                             <div className="d-flex flex-column justify-content-center">
                                 <input type="checkbox" name="termos" id="termos" className="div-check-inline div-check-input" value={check} onClick={
                                     () => {setCheck(true)
