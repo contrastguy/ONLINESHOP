@@ -4,7 +4,7 @@
 
 <p>OnlineShop é um Ecommerce com modelo B2B2C, no qual lojas terceirizadas, que estão cadastradas, vendem produtos para os consumidores finais.</p>
 
-### 🪝Vídeo da Aplicação
+### 🪝 Vídeo da Aplicação
 
 <p>Link para o vídeo : https://www.youtube.com/watch?v=wWppm9hE8co</p> 
 
